@@ -22,10 +22,10 @@ Therefore, this project comes up.
     $ sudo make unlink # Or: sudo make remove
     ````
 
-## Rules of Configuration
+## Rules of Configuration<a id="conf_rules"></a>
 
 * Path hierarchy:
-    * Convention: `<Vendor>`/`<Chip>`/`<Group>`.json
+    * Convention: `<Vendor>`/`<Chip>`/`<Group>.json`
     * Example: rockchip/rk3588/mipi.json
 
 * JSON example:
@@ -35,7 +35,7 @@ Therefore, this project comes up.
         "__data_bits__": 32, // Same as above.
 
         "__maintainers__": [
-            "YourName <YourEmail>;" // There can be multiple maintainers.
+            "YourName <YourEmail>" // There can be multiple maintainers.
         ],
 
         // Modules that can be divided into the same group (JSON file).
@@ -125,7 +125,7 @@ Therefore, this project comes up.
 
 ## How to Contribute
 
-* Read `Rules of Configuration` above.
+* Read [Rules of Configuration](#conf_rules) above.
 
 * Make a one-shot contribution: Submit a pull request.
 
