@@ -46,7 +46,7 @@ Therefore, this project comes up.
         ],
 
         "Module 1": {
-            "__prefix__": "<PREFIX_OF_MODULE_1>_", // Not used so far.
+            "__prefix__": "<PREFIX_OF_MODULE_1>_", // Optional, not used so far.
 
             "__defaults__": {
                 // "<Register Address or Offset> | <Descriptive Name of This Register>": "<Non-Zero Default Value>"
@@ -71,6 +71,7 @@ Therefore, this project comes up.
              *          "<high bit>[:<low bit>]",   // Required. Example 1: "7:4"; Example 2: "2"
              *          "<read-write permission>",  // Required. Should be RO or RW.
              *          "<type>",                   // Required. Should be one of:
+             *                                      //      missing: usually because the official doesn't provide any info
              *                                      //      reserved
              *                                      //      todo
              *                                      //      enum: enumerable description items stored in a drop-down list box
