@@ -33,7 +33,177 @@
 
     "PLL": {
         "__defaults__": {
-        }
+            "0x0300 | pll1_pre_div": "0x02",
+            "0x0302 | pll1_multiplier_low": "0x5A",
+            "0x0305 | pll1_sys_bitdiv": "0x01",
+            "0x0309 | pll1_cp": "0x01",
+            "0x030A | pll1_reserve": "0x50",
+            "0x030D | pll2_r_divp_low": "0x36",
+            "0x030E | pll2_sramdiv": "0x05",
+            "0x030F | pll2_sa1_div": "0x01",
+            "0x0310 | pll2_r_cp": "0x01",
+            "0x0312 | pll2_hybrid": "0x01"
+        },
+
+        "0x0300 | pll1_pre_div": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            {
+                "attr": [ "2:0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/1.5",
+                    "2": "/2",
+                    "3": "/2.5",
+                    "4": "/3",
+                    "5": "/4",
+                    "6": "/6",
+                    "7": "/8"
+                }
+            }
+        ],
+
+        "0x0301 | pll1_multiplier_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "udecimal", "multiplier[9:8]:" ] }
+        ],
+
+        "0x0302 | pll1_multiplier_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "multiplier[7:0]:" ] }
+        ],
+
+        "0x0303 | pll1_divpx": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            {
+                "attr": [ "1:0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/2",
+                    "2": "/3",
+                    "3": "/4"
+                }
+            }
+        ],
+
+        "0x0304 | pll1_pixel_bitdiv": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/4",
+                    "1": "/5"
+                }
+            }
+        ],
+
+        "0x0305 | pll1_sys_bitdiv": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/4",
+                    "1": "/5"
+                }
+            }
+        ],
+
+        "0x0307 | pll1_predivp": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/2"
+                }
+            }
+        ],
+
+        "0x0308 | pll1_bypass": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "bool", "bypass:" ] }
+        ],
+
+        "0x0309 | pll1_cp": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "cp:", "FIXME: What does cp mean??" ] }
+        ],
+
+        "0x030A | pll1_reserve": [
+            { "attr": [ "7:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x030B | pll2_pre_div": [
+            { "ref": "0x0300 | pll1_pre_div" }
+        ],
+
+        "0x030C | pll2_r_divp_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "udecimal", "r_divp[9:8]:" ] }
+        ],
+
+        "0x030D | pll2_r_divp_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "r_divp[7:0]:" ] }
+        ],
+
+        "0x030E | pll2_sramdiv": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "div:", "value = this + 1" ] }
+        ],
+
+        "0x030F | pll2_sa1_div": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            {
+                "attr": [ "1:0", "RW", "enum", "div:" ],
+                "desc": {
+                    "0": "/5",
+                    "1": "/6",
+                    "2": "/7",
+                    "3": "/8"
+                }
+            }
+        ],
+
+        "0x0310 | pll2_r_cp": [
+            { "ref": "0x0309 | pll1_cp" }
+        ],
+
+        "0x0311 | pll2_bypass": [
+            { "ref": "0x0308 | pll1_bypass" }
+        ],
+
+        "0x0312 | pll2_hybrid": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "div_reset_sync:" ] },
+            {
+                "attr": [ "4", "RW", "enum", "predivp:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/2"
+                }
+            },
+            { "attr": [ "3:2", "RW", "reserved" ] },
+            {
+                "attr": [ "1:0", "RW", "enum", "r_divdac:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/2",
+                    "2": "/3",
+                    "3": "/4"
+                }
+            }
+        ],
+
+        "0x0313 | pll2_reserve": [
+            { "ref": "0x030A | pll1_reserve" }
+        ],
+
+        "0x031B | pll1_reset": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "bool", "reset:" ] }
+        ],
+
+        "0x031C | pll2_reset": [
+            { "ref": "0x031B | pll1_reset" }
+        ]
     },
 
     "System": {
