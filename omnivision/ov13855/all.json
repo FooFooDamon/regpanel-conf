@@ -257,7 +257,22 @@
 
     "Clip": {
         "__defaults__": {
-        }
+            "0x4300 | clip_max_high": "0xFF",
+            "0x4302 | clip_low": "0x0F"
+        },
+
+        "0x4300 | clip_max_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "clip_max[11:4]:" ] }
+        ],
+
+        "0x4301 | clip_min_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "clip_min[11:4]:" ] }
+        ],
+
+        "0x4302 | clip_low": [
+            { "attr": [ "7:4", "RW", "udecimal", "clip_min[3:0]:" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "clip_max[3:0]:" ] }
+        ]
     },
 
     "Column ADC Sync and SYNC_FIFO": {
@@ -272,7 +287,36 @@
 
     "ISP Frame Control": {
         "__defaults__": {
-        }
+        },
+
+        "0x4900 | R0": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "send_sof_after_line0:" ] },
+            { "attr": [ "2", "RW", "bool", "fcnt_eof_select:" ] },
+            { "attr": [ "1", "RW", "bool", "fcnt_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "0", "RW", "bool", "fcnt_reset:" ] }
+        ],
+
+        "0x4901 | R1": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "frame_on_number:" ] }
+        ],
+
+        "0x4902 | R2": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "frame_off_number:" ] }
+        ],
+
+        "0x4903 | R3": [
+            { "attr": [ "7", "RW", "bool", "zero_line_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "6", "RW", "bool", "rblue_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "5", "RW", "bool", "data_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "4", "RW", "bool", "valid_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "3", "RW", "bool", "href_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "2", "RW", "bool", "eof_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "1", "RW", "bool", "sof_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "0", "RW", "bool", "all_mask_dis:", "FIXME: What does dis mean??" ] }
+        ]
     },
 
     "Temperature Sensor": {
