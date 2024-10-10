@@ -233,7 +233,11 @@
 
     "Sensor Top Control": {
         "__defaults__": {
-        }
+        },
+
+        "0x3700~0x37FF | Sensor Top Control": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ]
     },
 
     "Timing Control": {
