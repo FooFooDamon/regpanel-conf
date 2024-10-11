@@ -25,9 +25,9 @@
         "ISP Control | [5000, 5049]",
         "Pre-ISP | [5080, 50B5]",
         "Manual White Balance | [5100, 5107], [5140, 5147]",
-        "Defective Pixel Correction | [5180, 51A6], [5200, 521F], [5280, 529F]",
-        "Lens Control | [5400, 540F], [5500, 5667]",
-        "Window Control | [5800, 5813]"
+        "Defective Pixel Cancellation | [5180, 51A6], [5200, 521F], [5280, 529F]",
+        "Lens Correction | [5400, 540F], [5500, 5667]",
+        "Window Cut | [5800, 5813]"
     ],
 
     "PLL | [0300, 031C]": {
@@ -508,18 +508,106 @@
         ]
     },
 
-    "Defective Pixel Correction | [5180, 51A6], [5200, 521F], [5280, 529F]": {
+    "Defective Pixel Cancellation | [5180, 51A6], [5200, 521F], [5280, 529F]": {
         "__defaults__": {
         }
     },
 
-    "Lens Control | [5400, 540F], [5500, 5667]": {
+    "Lens Correction | [5400, 540F], [5500, 5667]": {
         "__defaults__": {
         }
     },
 
-    "Window Control | [5800, 5813]": {
+    "Window Cut | [5800, 5813]": {
         "__defaults__": {
-        }
+            "0x5804 | win_width_high": "0x02",
+            "0x5805 | win_width_low": "0x80",
+            "0x5806 | win_height_high": "0x01",
+            "0x5807 | win_height_low": "0xE0",
+            "0x5809 | win_height_ext_linenum": "0xE0"
+        },
+
+        "0x5800 | win_x_start_high": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "x_start[12:8]:" ] }
+        ],
+
+        "0x5801 | win_x_start_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_start[7:0]:" ] }
+        ],
+
+        "0x5802 | win_y_start_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "y_start[11:8]:" ] }
+        ],
+
+        "0x5803 | win_y_start_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_start[7:0]:" ] }
+        ],
+
+        "0x5804 | win_width_high": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "width[12:8]:" ] }
+        ],
+
+        "0x5805 | win_width_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "width[7:0]:" ] }
+        ],
+
+        "0x5806 | win_height_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "height[11:8]:" ] }
+        ],
+
+        "0x5807 | win_height_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "height[7:0]:" ] }
+        ],
+
+        "0x5808 | win_embeded_line": [
+            { "attr": [ "7:4", "RW", "udecimal", "embeded_linenum:", "Embedded line number" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            {
+                "attr": [ "2", "RW", "enum", "embeded_line_select:" ],
+                "desc": {
+                    "0": "Start line",
+                    "1": "End line"
+                }
+            },
+            { "attr": [ "1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "win_size_select:" ],
+                "desc": {
+                    "0": "From window top",
+                    "1": "From register"
+                }
+            }
+        ],
+
+        "0x5809 | win_height_ext_linenum": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "ext_linenum:", "Window height extent line number" ] }
+        ],
+
+        "0x580A | minus_y_offset": [
+            { "attr": [ "7:0", "RW", "udecimal", "offset:" ] }
+        ],
+
+        "0x5810 | pixel_cnt_high": [
+            { "attr": [ "7:5", "RO", "reserved" ] },
+            { "attr": [ "4:0", "RO", "udecimal", "pixel_cnt[12:8]:" ] }
+        ],
+
+        "0x5811 | pixel_cnt_low": [
+            { "attr": [ "7:0", "RO", "udecimal", "pixel_cnt[7:0]:" ] }
+        ],
+
+        "0x5812 | line_cnt_high": [
+            { "attr": [ "7:4", "RO", "reserved" ] },
+            { "attr": [ "3:0", "RO", "udecimal", "line_cnt[11:8]:" ] }
+        ],
+
+        "0x5813 | line_cnt_low": [
+            { "attr": [ "7:0", "RO", "udecimal", "line_cnt[7:0]:" ] }
+        ]
     }
 }
