@@ -24,8 +24,7 @@
         "Temperature Sensor",
         "ISP Control",
         "Pre-ISP",
-        "White Balance for Long Exposure",
-        "White Balance for Short Exposure",
+        "Manual White Balance",
         "Defective Pixel Correction",
         "Lens Control",
         "Window Control"
@@ -321,7 +320,93 @@
 
     "Temperature Sensor": {
         "__defaults__": {
-        }
+            "0x4D11 | r_temp_max": "0xFF"
+        },
+
+        "0x4D00 | temp_ctrl_reg00": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D01 | temp_ctrl_reg01": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D02 | temp_ctrl_reg02": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D03 | temp_ctrl_reg03": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D04 | temp_ctrl_reg04": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D05 | temp_ctrl_reg05": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D06 | temp_ctrl_reg06": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D07 | temp_ctrl_reg07": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D08 | temp_ctrl_reg08": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D09 | temp_ctrl_reg09": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0A | temp_ctrl_reg10": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0B | temp_ctrl_reg11": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0C | temp_ctrl_reg12": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0D | temp_ctrl_reg13": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0E | temp_ctrl_reg14": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D0F | temp_ctrl_reg15": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x4D10 | r_temp_min": [
+            { "attr": [ "7:0", "RW", "decimal", "value:" ] }
+        ],
+
+        "0x4D11 | r_temp_max": [
+            { "ref": "0x4D10 | r_temp_min" }
+        ],
+
+        "0x4D12 | r_temp_calc": [
+            { "attr": [ "7:1", "WO", "reserved" ] },
+            { "attr": [ "0", "WO", "bool", "shold_calc:", "Writing this bit to '1' Will Trigger Temperature Calculating,\nThen registers 0x4D13 and 0x4D14 Will Be Latched Temperature Value" ] }
+        ],
+
+        "0x4D13 | latched_value_integer_part": [
+            { "attr": [ "7:0", "RO", "decimal", "value:", "Latched Temperature Value, Integer Part" ] }
+        ],
+
+        "0x4D14 | latched_value_decimal_part": [
+            { "attr": [ "7:0", "RO", "udecimal", "value:", "Latched Temperature Value, Decimal Part" ] }
+        ]
     },
 
     "ISP Control": {
@@ -334,14 +419,93 @@
         }
     },
 
-    "White Balance for Long Exposure": {
+    "Manual White Balance": {
         "__defaults__": {
-        }
-    },
+            "0x5100 | [Long Exposure] MWB_blue_gain_high": "0x04",
+            "0x5102 | [Long Exposure] MWB_green_gain_high": "0x04",
+            "0x5104 | [Long Exposure] MWB_red_gain_high": "0x04",
 
-    "White Balance for Short Exposure": {
-        "__defaults__": {
-        }
+            "0x5140 | [Short Exposure] MWB_blue_gain_high": "0x04",
+            "0x5142 | [Short Exposure] MWB_green_gain_high": "0x04",
+            "0x5144 | [Short Exposure] MWB_red_gain_high": "0x04"
+        },
+
+        "0x5100 | [Long Exposure] MWB_blue_gain_high": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in BLUE channel (high bits)" ] }
+        ],
+
+        "0x5101 | [Long Exposure] MWB_blue_gain_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in BLUE channel (low bits)" ] }
+        ],
+
+        "0x5102 | [Long Exposure] MWB_green_gain_high": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in GREEN channel (high bits)" ] }
+        ],
+
+        "0x5103 | [Long Exposure] MWB_green_gain_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in GREEN channel (low bits)" ] }
+        ],
+
+        "0x5104 | [Long Exposure] MWB_red_gain_high": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in RED channel (high bits)" ] }
+        ],
+
+        "0x5105 | [Long Exposure] MWB_red_gain_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in RED channel (low bits)" ] }
+        ],
+
+        "0x5106 | [Long Exposure] MWB_gain_select": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "selection:", "Manual White Balance gain selection" ],
+                "desc": {
+                    "0": "MWB control selection",
+                    "1": "Debug mode"
+                }
+            }
+        ],
+
+        "0x5107 | [Long Exposure] MWB_CFA_control": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:4", "RW", "udecimal", "Manual_CFA_Pattern:", "FIXME: Should be enum type??" ] },
+            { "attr": [ "3:1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "bool", "Manual_CFA_Enable:", "Whether to enable manual Color Filter Array pattern" ] }
+        ],
+
+        "0x5140 | [Short Exposure] MWB_blue_gain_high": [
+            { "ref": "0x5100 | [Long Exposure] MWB_blue_gain_high" }
+        ],
+
+        "0x5141 | [Short Exposure] MWB_blue_gain_low": [
+            { "ref": "0x5101 | [Long Exposure] MWB_blue_gain_low" }
+        ],
+
+        "0x5142 | [Short Exposure] MWB_green_gain_high": [
+            { "ref": "0x5102 | [Long Exposure] MWB_green_gain_high" }
+        ],
+
+        "0x5143 | [Short Exposure] MWB_green_gain_low": [
+            { "ref": "0x5103 | [Long Exposure] MWB_green_gain_low" }
+        ],
+
+        "0x5144 | [Short Exposure] MWB_red_gain_high": [
+            { "ref": "0x5104 | [Long Exposure] MWB_red_gain_high" }
+        ],
+
+        "0x5145 | [Short Exposure] MWB_red_gain_low": [
+            { "ref": "0x5105 | [Long Exposure] MWB_red_gain_low" }
+        ],
+
+        "0x5146 | [Short Exposure] MWB_gain_select": [
+            { "ref": "0x5106 | [Long Exposure] MWB_gain_select" }
+        ],
+
+        "0x5147 | [Short Exposure] MWB_CFA_control": [
+            { "ref": "0x5107 | [Long Exposure] MWB_CFA_control" }
+        ]
     },
 
     "Defective Pixel Correction": {
