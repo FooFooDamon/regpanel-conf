@@ -7,30 +7,30 @@
     ],
 
     "__modules__": [
-        "PLL",
-        "System",
-        "SCCB",
-        "Group Hold",
-        "Automatic Exposure Control",
-        "Analog Control",
-        "Sensor Top Control",
-        "Timing Control",
-        "OTP Control",
-        "Black Level Calibration",
-        "Clip",
-        "Column ADC Sync and SYNC_FIFO",
-        "MIPI",
-        "ISP Frame Control",
-        "Temperature Sensor",
-        "ISP Control",
-        "Pre-ISP",
-        "Manual White Balance",
-        "Defective Pixel Correction",
-        "Lens Control",
-        "Window Control"
+        "PLL | [0300, 031C]",
+        "System | [0100, 0103], [3002, 302A]",
+        "SCCB | [3100, 3108]",
+        "Group Hold | [3200, 320F]",
+        "Automatic Exposure Control | [3500, 3518]",
+        "Analog Control | [3600, 36F2]",
+        "Sensor Top Control | [3700, 37FF]",
+        "Timing Control | [3800, 3832]",
+        "One-Time-Programing Control | [3D80, 3D95]",
+        "Black Level Calibration | [4000, 40BF]",
+        "Clip | [4300, 4302]",
+        "Column ADC Sync and SYNC_FIFO | [4500, 450B]",
+        "MIPI | [4800, 484F]",
+        "ISP Frame Control | [4900, 4903]",
+        "Temperature Sensor | [4D00, 4D14]",
+        "ISP Control | [5000, 5049]",
+        "Pre-ISP | [5080, 50B5]",
+        "Manual White Balance | [5100, 5107], [5140, 5147]",
+        "Defective Pixel Correction | [5180, 51A6], [5200, 521F], [5280, 529F]",
+        "Lens Control | [5400, 540F], [5500, 5667]",
+        "Window Control | [5800, 5813]"
     ],
 
-    "PLL": {
+    "PLL | [0300, 031C]": {
         "__defaults__": {
             "0x0300 | pll1_pre_div": "0x02",
             "0x0302 | pll1_multiplier_low": "0x5A",
@@ -205,32 +205,32 @@
         ]
     },
 
-    "System": {
+    "System | [0100, 0103], [3002, 302A]": {
         "__defaults__": {
         }
     },
 
-    "SCCB": {
+    "SCCB | [3100, 3108]": {
         "__defaults__": {
         }
     },
 
-    "Group Hold": {
+    "Group Hold | [3200, 320F]": {
         "__defaults__": {
         }
     },
 
-    "Automatic Exposure Control": {
+    "Automatic Exposure Control | [3500, 3518]": {
         "__defaults__": {
         }
     },
 
-    "Analog Control": {
+    "Analog Control | [3600, 36F2]": {
         "__defaults__": {
         }
     },
 
-    "Sensor Top Control": {
+    "Sensor Top Control | [3700, 37FF]": {
         "__defaults__": {
         },
 
@@ -239,22 +239,22 @@
         ]
     },
 
-    "Timing Control": {
+    "Timing Control | [3800, 3832]": {
         "__defaults__": {
         }
     },
 
-    "OTP Control": {
+    "One-Time-Programing Control | [3D80, 3D95]": {
         "__defaults__": {
         }
     },
 
-    "Black Level Calibration": {
+    "Black Level Calibration | [4000, 40BF]": {
         "__defaults__": {
         }
     },
 
-    "Clip": {
+    "Clip | [4300, 4302]": {
         "__defaults__": {
             "0x4300 | clip_max_high": "0xFF",
             "0x4302 | clip_low": "0x0F"
@@ -274,17 +274,17 @@
         ]
     },
 
-    "Column ADC Sync and SYNC_FIFO": {
+    "Column ADC Sync and SYNC_FIFO | [4500, 450B]": {
         "__defaults__": {
         }
     },
 
-    "MIPI": {
+    "MIPI | [4800, 484F]": {
         "__defaults__": {
         }
     },
 
-    "ISP Frame Control": {
+    "ISP Frame Control | [4900, 4903]": {
         "__defaults__": {
         },
 
@@ -318,7 +318,7 @@
         ]
     },
 
-    "Temperature Sensor": {
+    "Temperature Sensor | [4D00, 4D14]": {
         "__defaults__": {
             "0x4D11 | r_temp_max": "0xFF"
         },
@@ -397,7 +397,7 @@
 
         "0x4D12 | r_temp_calc": [
             { "attr": [ "7:1", "WO", "reserved" ] },
-            { "attr": [ "0", "WO", "bool", "shold_calc:", "Writing this bit to '1' Will Trigger Temperature Calculating,\nThen registers 0x4D13 and 0x4D14 Will Be Latched Temperature Value" ] }
+            { "attr": [ "0", "WO", "bool", "should_calc:", "Writing this bit to '1' Will Trigger Temperature Calculating,\nThen registers 0x4D13 and 0x4D14 Will Be Latched Temperature Value" ] }
         ],
 
         "0x4D13 | latched_value_integer_part": [
@@ -409,17 +409,17 @@
         ]
     },
 
-    "ISP Control": {
+    "ISP Control | [5000, 5049]": {
         "__defaults__": {
         }
     },
 
-    "Pre-ISP": {
+    "Pre-ISP | [5080, 50B5]": {
         "__defaults__": {
         }
     },
 
-    "Manual White Balance": {
+    "Manual White Balance | [5100, 5107], [5140, 5147]": {
         "__defaults__": {
             "0x5100 | [Long Exposure] MWB_blue_gain_high": "0x04",
             "0x5102 | [Long Exposure] MWB_green_gain_high": "0x04",
@@ -508,17 +508,17 @@
         ]
     },
 
-    "Defective Pixel Correction": {
+    "Defective Pixel Correction | [5180, 51A6], [5200, 521F], [5280, 529F]": {
         "__defaults__": {
         }
     },
 
-    "Lens Control": {
+    "Lens Control | [5400, 540F], [5500, 5667]": {
         "__defaults__": {
         }
     },
 
-    "Window Control": {
+    "Window Control | [5800, 5813]": {
         "__defaults__": {
         }
     }
