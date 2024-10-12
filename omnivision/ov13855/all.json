@@ -515,7 +515,99 @@
 
     "Lens Correction | [5400, 540F], [5500, 5667]": {
         "__defaults__": {
-        }
+            "0x5400 | max_gain_threshold": "0x60",
+            "0x5401 | min_gain_threshold": "0x40",
+            "0x5402 | maxq": "0x40",
+            "0x5403 | minq": "0x18",
+            "0x5404 | enable_bits": "0x36",
+            "0x5405 | horizontal_scale_high": "0x01",
+            "0x5406 | horizontal_scale_low": "0xE1",
+            "0x5407 | vertical_scale_high": "0x01",
+            "0x5408 | vertical_scale_low": "0x41"
+        },
+
+        "0x5400 | max_gain_threshold": [
+            { "attr": [ "7:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x5401 | min_gain_threshold": [
+            { "attr": [ "7:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x5402 | maxq": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "value:", "Apply maximum amplitude" ] }
+        ],
+
+        "0x5403 | minq": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "value:", "Apply minimum amplitude" ] }
+        ],
+
+        "0x5404 | enable_bits": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "enable_BLC_add:", "BLC is short for Black Level Calibration.\nThis bit must be set to 1!" ] },
+            { "attr": [ "4", "RW", "bool", "enable_BLC:", "BLC is short for Black Level Calibration.\nThis bit must be set to 1!" ] },
+            { "attr": [ "3", "RW", "bool", "enable_2x_blue_red_gain:", "Must be set to 0!" ] },
+            { "attr": [ "2", "RW", "bool", "enable_m_nQ_auto_calc:", "Whether to enable m_nQ auto calculation.\nThis bit must be set to 1!" ] },
+            { "attr": [ "1", "RW", "bool", "enable_dithering_func:", "Whether to enable dithering function to avoid lost bit" ] },
+            { "attr": [ "0", "RW", "bool", "enable_2x_green_gain:" ] }
+        ],
+
+        "0x5405 | horizontal_scale_high": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "horizontal_scale[12:8]:" ] }
+        ],
+
+        "0x5406 | horizontal_scale_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "horizontal_scale[7:0]:" ] }
+        ],
+
+        "0x5407 | vertical_scale_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "vertical_scale[11:8]:" ] }
+        ],
+
+        "0x5408 | vertical_scale_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "vertical_scale[7:0]:" ] }
+        ],
+
+        "0x5409 | x_offset_high": [
+            { "attr": [ "7:5", "RO", "reserved" ] },
+            { "attr": [ "4:0", "RO", "udecimal", "x_offset[12:8]:" ] }
+        ],
+
+        "0x540A | x_offset_low": [
+            { "attr": [ "7:0", "RO", "udecimal", "x_offset[7:0]:" ] }
+        ],
+
+        "0x540B | y_offset_high": [
+            { "attr": [ "7:4", "RO", "reserved" ] },
+            { "attr": [ "3:0", "RO", "udecimal", "y_offset[11:8]:" ] }
+        ],
+
+        "0x540C | y_offset_low": [
+            { "attr": [ "7:0", "RO", "udecimal", "y_offset[7:0]:" ] }
+        ],
+
+        "0x540D | flip_mirror_skip": [
+            { "attr": [ "7:6", "RO", "reserved" ] },
+            { "attr": [ "5", "RO", "bool", "flip:" ] },
+            { "attr": [ "4", "RO", "bool", "mirror:" ] },
+            { "attr": [ "3:2", "RO", "udecimal", "y_skip:" ] },
+            { "attr": [ "1:0", "RO", "udecimal", "x_skip:" ] }
+        ],
+
+        "0x540E | overflow": [
+            { "attr": [ "7:2", "RO", "reserved" ] },
+            { "attr": [ "1", "RO", "bool", "vertical:" ] },
+            { "attr": [ "0", "RO", "bool", "horizontal:" ] }
+        ],
+
+        "0x540F | m_nQ": [
+            { "attr": [ "7", "RO", "reserved" ] },
+            { "attr": [ "6:0", "RO", "udecimal", "value:" ] }
+        ]
     },
 
     "Window Cut | [5800, 5813]": {
