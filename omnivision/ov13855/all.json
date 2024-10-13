@@ -212,7 +212,111 @@
 
     "SCCB | [3100, 3108]": {
         "__defaults__": {
-        }
+            "0x3101 | sccb_opt": "0x32",
+            "0x3104 | power_up_dis": "0x01",
+            "0x3105 | pad_clk_div": "0x11",
+            "0x3106 | srb_host_input_dis": "0x15",
+            "0x3107 | srb_ctrl_1": "0x01",
+            "0x3108 | srb_ctrl_2": "0x01"
+        },
+
+        "0x3100 | sda_delay": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "enable:" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x3101 | sccb_opt": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "enable_addr_trans_table:", "Whether to enable register address translating table" ] },
+            { "attr": [ "4", "RW", "bool", "enable_addr_auto_increment:" ] },
+            {
+                "attr": [ "3", "RW", "enum", "sda_bypass_sync:" ],
+                "desc": {
+                    "0": "Two clock stage sync for sda_i",
+                    "1": "No sync for sda_i"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "scl_bypass_sync:" ],
+                "desc": {
+                    "0": "Two clock stage sync for scl_i",
+                    "1": "No sync for scl_i"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "mask_glitch:" ] },
+            { "attr": [ "0", "RW", "bool", "mask_stop:" ] }
+        ],
+
+        "0x3102 | sccb_filter": [
+            { "attr": [ "7:4", "RW", "udecimal", "sda_num:" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "scl_num:" ] }
+        ],
+
+        "0x3103 | sccb_sys_ctrl": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6", "RW", "bool", "reset_mipi_slave_clk:", "FIXME: ctrl_rst_mipisc" ] },
+            { "attr": [ "5", "RW", "bool", "reset_srb:", "FIXME: What does srb mean??" ] },
+            { "attr": [ "4", "RW", "bool", "reset_sccb_s:", "FIXME: What does _s mean??" ] },
+            { "attr": [ "3", "RW", "bool", "reset_pon_sccb_s:", "FIXME: What does pon mean?? What does _s mean??" ] },
+            { "attr": [ "2", "RW", "bool", "reset_clk_mode:" ] },
+            { "attr": [ "1", "RW", "bool", "mipi_phy_reset_o:", "FIXME: What does _o mean??" ] },
+            { "attr": [ "0", "RW", "bool", "pll_reset_o:", "FIXME: What does _o mean??" ] }
+        ],
+
+        "0x3104 | power_up_dis": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "enable_srb_clk_sync:", "FIXME: What does srb mean??" ] },
+            { "attr": [ "3", "RW", "bool", "power_up_dis2:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "2", "RW", "bool", "power_up_dis1:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "1", "RW", "bool", "pll_clk_select:" ] },
+            { "attr": [ "0", "RW", "bool", "power_up_dis0:", "FIXME: What does dis mean??" ] }
+        ],
+
+        "0x3105 | pad_clk_div": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:0", "RW", "udecimal", "div:" ] }
+        ],
+
+        "0x3106 | srb_host_input_dis": [
+            { "attr": [ "7", "RW", "bool", "sramclk_cutoff_bypass:" ] },
+            { "attr": [ "6", "RW", "bool", "sa1clk_cutoff_bypass:" ] },
+            { "attr": [ "5:4", "RW", "reserved" ] },
+            {
+                "attr": [ "3:2", "RW", "enum", "sys_clk_div:" ],
+                "desc": {
+                    "0": "/1",
+                    "1": "/2",
+                    "2": "/4",
+                    "3": "/8"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "reset_arb:", "FIXME: What does arb mean??" ] },
+            { "attr": [ "0", "RW", "bool", "bypass_arb:", "FIXME: What does arb mean??" ] }
+        ],
+
+        "0x3107 | srb_ctrl_1": [
+            { "attr": [ "7", "RW", "bool", "disable_npump_clk_auto_switch:", "FIXME: npump_clk_ausw_dis" ] },
+            { "attr": [ "6", "RW", "bool", "npump_clk_switch:", "FIXME: npump_clk_sw" ] },
+            { "attr": [ "5", "RW", "bool", "enable_auto_sleep:" ] },
+            { "attr": [ "4", "RW", "bool", "disable_pd_mipi_auto_sleep:", "FIXME: pd_mipi_dis_aslp" ] },
+            { "attr": [ "3", "RW", "bool", "pumpclk_cutoff_bypass:" ] },
+            { "attr": [ "2", "RW", "bool", "pclk_cutoff_bypass:" ] },
+            { "attr": [ "1", "RW", "bool", "sclk_cutoff_bypass:" ] },
+            { "attr": [ "0", "RW", "bool", "sclk_inverse:" ] }
+        ],
+
+        "0x3108 | srb_ctrl_2": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            {
+                "attr": [ "1", "RW", "enum", "pll_sclk_selection:" ],
+                "desc": {
+                    "0": "pll_sclk_i",
+                    "1": "p_clk_i"
+                }
+            },
+            { "attr": [ "0", "RW", "bool", "allow_sleep_control:" ] }
+        ]
     },
 
     "Group Hold | [3200, 320F]": {
