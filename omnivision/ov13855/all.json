@@ -207,7 +207,372 @@
 
     "System | [0100, 0103], [3002, 302A]": {
         "__defaults__": {
-        }
+            "0x3002 | pad_oen2": "0x21",
+            "0x3003 | sccb_id_if_sid_low": "0x6C",
+            "0x3004 | sccb_id_if_sid_high": "0x20",
+            "0x3005 | sccb_id_alternative": "0x42",
+            "0x300B | chip_id_median": "0xD8",
+            "0x300C | chip_id_low": "0x55",
+            "0x3011 | delay_after_stream_on": "0x04",
+            "0x3015 | pump_clk_div": "0x10",
+            "0x3016 | mipi_options": "0x72",
+            "0x3018 | clk_ctrl_1": "0xF0",
+            "0x3019 | clk_ctrl_2": "0xF0",
+            "0x301A | clk_reset_0": "0xF0",
+            "0x301B | clk_reset_1": "0xD0",
+            "0x301C | clk_reset_2": "0xF0",
+            "0x301D | clk_reset_3": "0xD8",
+            "0x301E | clk_reset_4": "0xF0",
+            "0x301F | clk_reset_5": "0xD0",
+            "0x3020 | clock_selection": "0x9B",
+            "0x3021 | misc_ctrl": "0x23",
+            "0x3022 | mipi_slave_clk_ctrl": "0x01"
+        },
+
+        "0x0100 | mode_select": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "mode:" ],
+                "desc": {
+                    "0": "Software Standby",
+                    "1": "Streaming"
+                }
+            }
+        ],
+
+        "0x0101 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x0102 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x0103 | software_reset": [
+            { "attr": [ "7:1", "WO", "reserved" ] },
+            { "attr": [ "0", "WO", "bool", "reset:" ] }
+        ],
+
+        "0x3002 | pad_oen2": [
+            { "attr": [ "7", "RW", "bool", "io_fsin_oen:", "OEN of IO Frame Sync Input.\nFIXME: What does OEN mean??" ] },
+            { "attr": [ "6", "RW", "bool", "io_vsync_oen:", "OEN of IO Vertical Sync.\nFIXME: What does OEN mean??" ] },
+            { "attr": [ "5:0", "RW", "reserved" ] }
+        ],
+
+        "0x3003 | sccb_id_if_sid_low": [
+            { "attr": [ "7:0", "RW", "hex", "id:", "SCCB programmable ID which is used when SID pin is low." ] }
+        ],
+
+        "0x3004 | sccb_id_if_sid_high": [
+            { "attr": [ "7:0", "RW", "hex", "id:", "SCCB programmable ID which is used when SID pin is high." ] }
+        ],
+
+        "0x3005 | sccb_id_alternative": [
+            { "attr": [ "7:0", "RW", "hex", "id:", "SCCB alternative ID which can be used no matter SID pin is high or low." ] }
+        ],
+
+        "0x3006 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x3007 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x3008 | pad_out2": [
+            { "attr": [ "7", "RW", "bool", "io_fsin_output:" ] },
+            { "attr": [ "6", "RW", "bool", "io_vsync_output:" ] },
+            { "attr": [ "5:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "io_sda_output:" ] },
+            { "attr": [ "1:0", "RW", "reserved" ] }
+        ],
+
+        "0x300A | chip_id_high": [
+            { "attr": [ "7:0", "RO", "hex", "chip_id[23:16]:" ] }
+        ],
+
+        "0x300B | chip_id_median": [
+            { "attr": [ "7:0", "RO", "hex", "chip_id[15:8]:" ] }
+        ],
+
+        "0x300C | chip_id_low": [
+            { "attr": [ "7:0", "RO", "hex", "chip_id[7:0]:" ] }
+        ],
+
+        "0x300D | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x300E | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x300F | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x3010 | pad_select2": [
+            { "attr": [ "7", "RW", "bool", "io_fsin_selected:" ] },
+            { "attr": [ "6", "RW", "bool", "io_vsync_selected:" ] },
+            { "attr": [ "5:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "io_sda_selected:" ] },
+            { "attr": [ "1:0", "RW", "reserved" ] }
+        ],
+
+        "0x3011 | delay_after_stream_on": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            {
+                "attr": [ "2:0", "RW", "enum", "mode:" ],
+                "desc": {
+                    "0": "2^9 pad clock cycles",
+                    "1": "2^10 pad clock cycles",
+                    "2": "2^11 pad clock cycles",
+                    "3": "2^12 pad clock cycles",
+                    "4": "2^13 pad clock cycles",
+                    "5": "2^14 pad clock cycles",
+                    "6": "2^15 pad clock cycles",
+                    "7": "2^16 pad clock cycles"
+                }
+            }
+        ],
+
+        "0x3012 | clk_gate_masks_1": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6", "RW", "bool", "pclk_mipi:" ] },
+            { "attr": [ "5:0", "RW", "reserved" ] }
+        ],
+
+        "0x3013 | clk_gate_masks_2": [
+            { "attr": [ "7", "RW", "bool", "sclk_dpcm:" ] },
+            { "attr": [ "6", "RW", "bool", "sclk_mipi:" ] },
+            { "attr": [ "5", "RW", "bool", "sclk_temperature, sclk_clip:" ] },
+            { "attr": [ "4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "sclk_isp, sclk_isp_framectrl:" ] },
+            { "attr": [ "2", "RW", "bool", "sclk_blc:" ] },
+            { "attr": [ "1", "RW", "bool", "sclk_sync_fifo, sramclk_sync_fifo:" ] },
+            { "attr": [ "0", "RW", "bool", "sramclk_psram:" ] }
+        ],
+
+        "0x3014 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x3015 | pump_clk_div": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            {
+                "attr": [ "6:4", "RW", "enum", "Npump clock div:" ],
+                "desc": {
+                    "0": "/2",
+                    "1": "/4",
+                    "2": "/8",
+                    "3": "/16",
+                    "4": "/32",
+                    "*": "Disable Npump clock"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "pd_mipi_auto mode:" ],
+                "desc": {
+                    "0": "Use original reset",
+                    "1": "Use synchronous reset"
+                }
+            },
+            {
+                "attr": [ "2:0", "RW", "enum", "Ppump clock div:" ],
+                "desc": {
+                    "0": "/2",
+                    "1": "/4",
+                    "2": "/8",
+                    "3": "/16",
+                    "4": "/32",
+                    "*": "Disable Ppump clock"
+                }
+            }
+        ],
+
+        "0x3016 | mipi_options": [
+            { "attr": [ "7:5", "RW", "udecimal", "lane_mode:", "N + 1 lane" ] },
+            { "attr": [ "4", "RW", "bool", "enable_mipi:" ] },
+            { "attr": [ "3:2", "RW", "udecimal", "phy_pd_mipi:", "FIXME: What's this??" ] },
+            {
+                "attr": [ "1", "RW", "enum", "phy_rst option:" ],
+                "desc": {
+                    "0": "rst_sync cannot reset PHY",
+                    "1": "Reset PHY when rst_sync"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "lane_disable option:" ],
+                "desc": {
+                    "0": "Not used",
+                    "1": "Disable lanes when pd_mipi"
+                }
+            }
+        ],
+
+        "0x3017 | mipi_lanes_disablement": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "value:", "FIXME: n + 1, or 1 lane per bit ??" ] }
+        ],
+
+        "0x3018 | clk_ctrl_1": [
+            { "attr": [ "7", "RW", "bool", "enable_tclk_tc:", "FIXME: What's this??" ] },
+            { "attr": [ "6", "RW", "bool", "enable_tclk_snr_ctrl:", "FIXME: What's this??" ] },
+            { "attr": [ "5", "RW", "bool", "enable_sramclk_psram:", "FIXME: What's this??" ] },
+            { "attr": [ "4", "RW", "bool", "enable_sramclk_syncfifo:", "FIXME: What's this??" ] },
+            { "attr": [ "3", "RW", "bool", "rst_tc:", "FIXME: What's this??" ] },
+            { "attr": [ "2", "RW", "bool", "rst_snr_ctrl and psram_ctrl:", "FIXME: What's this??" ] },
+            { "attr": [ "1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "bool", "rst_syncfifo:", "FIXME: What's this??" ] }
+        ],
+
+        "0x3019 | clk_ctrl_2": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "tclk_psv_ctrl:", "FIXME: What's this??" ] },
+            { "attr": [ "4:2", "RW", "reserved" ] },
+            { "attr": [ "1", "RW", "bool", "rst_psv:", "FIXME: What's this??" ] },
+            { "attr": [ "0", "RW", "reserved" ] }
+        ],
+
+        "0x301A | clk_reset_0": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "mipi_phy_reset:" ] },
+            { "attr": [ "2:0", "RW", "reserved" ] }
+        ],
+
+        "0x301B | clk_reset_1": [
+            { "attr": [ "7", "RW", "bool", "enable_sclk_blc:" ] },
+            { "attr": [ "6", "RW", "bool", "enable_sclk_isp:" ] },
+            { "attr": [ "5", "RW", "bool", "enable_sclk_temperature:" ] },
+            { "attr": [ "4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "reset_blc:" ] },
+            { "attr": [ "2", "RW", "bool", "reset_isp:" ] },
+            { "attr": [ "1", "RW", "bool", "reset_temperature:" ] },
+            { "attr": [ "0", "RW", "reserved" ] }
+        ],
+
+        "0x301C | clk_reset_2": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6", "RW", "bool", "enable_sclk_mipi:" ] },
+            { "attr": [ "5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "enable_sclk_efuse:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "reset_mipi:" ] },
+            { "attr": [ "1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "bool", "reset_efuse:" ] }
+        ],
+
+        "0x301D | clk_reset_3": [
+            { "attr": [ "7", "RW", "bool", "enable_sclk_asram_test:" ] },
+            { "attr": [ "6", "RW", "bool", "enable_sclk_group:" ] },
+            { "attr": [ "5", "RW", "bool", "enable_sclk_bist:" ] },
+            { "attr": [ "4", "RW", "bool", "enable_sclk_aec:" ] },
+            { "attr": [ "3", "RW", "bool", "reset_asram_test:" ] },
+            { "attr": [ "2", "RW", "bool", "reset_sclk_group:" ] },
+            { "attr": [ "1", "RW", "bool", "reset_sclk_bist:" ] },
+            { "attr": [ "0", "RW", "bool", "reset_sclk_aec:" ] }
+        ],
+
+        "0x301E | clk_reset_4": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "enable_pclk_mipi:" ] },
+            { "attr": [ "3:0", "RW", "reserved" ] }
+        ],
+
+        "0x301F | clk_reset_5": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6", "RW", "bool", "enable_sclk_isp_fc:" ] },
+            { "attr": [ "5", "RW", "bool", "enable_sclk_dpcm:" ] },
+            { "attr": [ "4", "RW", "bool", "enable_sclk_clip:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "reset_isp_fc:" ] },
+            { "attr": [ "1", "RW", "bool", "reset_dpcm:" ] },
+            { "attr": [ "0", "RW", "bool", "reset_clip:" ] }
+        ],
+
+        "0x3020 | clock_selection": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            {
+                "attr": [ "4", "RW", "enum", "sccb_id2_nack:" ],
+                "desc": {
+                    "0": "SCCB slave returns normal ACK",
+                    "1": "SCCB slave does not return ACK"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "pclk_div:" ],
+                "desc": {
+                    "0": "/1, choose pll_pclk_i",
+                    "1": "/2, choose pll_pclk_d2"
+                }
+            },
+            { "attr": [ "2", "RW", "reserved" ] },
+            { "attr": [ "1", "RW", "bool", "pclk_inverse:" ] },
+            {
+                "attr": [ "0", "RW", "enum", "sclk2x_select:" ],
+                "desc": {
+                    "0": "choose pll_sclk_i",
+                    "1": "choose pll_sclk_d2"
+                }
+            }
+        ],
+
+        "0x3021 | misc_ctrl": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            {
+                "attr": [ "6", "RW", "enum", "sensor_sleep_trigger:", "When to sleep" ],
+                "desc": {
+                    "0": "In blanking period defined by bit[5] below",
+                    "1": "immediately"
+                }
+            },
+            {
+                "attr": [ "5", "RW", "enum", "software_standby_point:", "Works only when the above bit[6] = 0" ],
+                "desc": {
+                    "0": "Software standby enters at vertical blanking",
+                    "1": "Software standby enters at line blanking"
+                }
+            },
+            {
+                "attr": [ "4", "RW", "enum", "enable_mipi_ctrl:", "mipi_ctr_en" ],
+                "desc": {
+                    "0": "Disable function",
+                    "1": "Enable MIPI remote reset and suspend control SC"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "mipi_reset_selection:", "mipi_rst_sel" ],
+                "desc": {
+                    "0": "MIPI remote resets all registers",
+                    "1": "MIPI remote resets all digital modules"
+                }
+            },
+            { "attr": [ "2", "RW", "bool", "enable_gpio_pclk:" ] },
+            { "attr": [ "1", "RW", "bool", "frex_ef_sel:", "FIXME: What's this??" ] },
+            { "attr": [ "0", "RW", "bool", "cen_global_o:", "FIXME: What's this??" ] }
+        ],
+
+        "0x3022 | mipi_slave_clk_ctrl": [
+            {
+                "attr": [ "7:4", "RW", "enum", "mipi bit selection:" ],
+                "desc": {
+                    "4": "8-bit mode",
+                    "5": "10-bit mode",
+                    "6": "12-bit mode",
+                    "8": "16-bit mode",
+                    "*": "10-bit mode"
+                }
+            },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "disable clock lane 1:" ] },
+            { "attr": [ "1", "RW", "bool", "disable clock lane 0:" ] },
+            { "attr": [ "0", "RW", "bool", "enable pd_mipi_bypass software reset:" ] }
+        ],
+
+        "0x302A | sub_id": [
+            { "attr": [ "7:4", "RW", "udecimal", "process:" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "version:" ] }
+        ]
     },
 
     "SCCB | [3100, 3108]": {
@@ -345,7 +710,247 @@
 
     "Timing Control | [3800, 3832]": {
         "__defaults__": {
-        }
+            "0x3803 | y_addr_start_low": "0x08",
+            "0x3804 | x_addr_end_high": "0x10",
+            "0x3805 | x_addr_end_low": "0x9F",
+            "0x3806 | y_addr_end_high": "0x0C",
+            "0x3807 | y_addr_end_low": "0x57",
+            "0x3808 | x_output_size_high": "0x10",
+            "0x3809 | x_output_size_low": "0x70",
+            "0x380A | y_output_size_high": "0x0C",
+            "0x380B | y_output_size_low": "0x30",
+            "0x380C | HTS_high": "0x04",
+            "0x380D | HTS_low": "0x60",
+            "0x380E | VTS_high": "0x0C",
+            "0x380F | VTS_low": "0x8E",
+            "0x3811 | x_win_offset_low": "0x18",
+            "0x3813 | y_win_offset_low": "0x10",
+            "0x3814 | x_odd_increment": "0x01",
+            "0x3815 | x_even_increment": "0x01",
+            "0x3816 | y_odd_increment": "0x01",
+            "0x3817 | y_even_increment": "0x01",
+            "0x381B | vsync_end_low": "0x01",
+            "0x381C | BLC_num_option": "0x18",
+            "0x3820 | format1": "0xA0",
+            "0x3822 | reg22": "0xC8",
+            "0x3823 | reg23": "0x08",
+            "0x3825 | CS_reset_FSIN_low": "0x20",
+            "0x3827 | R_reset_FSIN_low": "0x08",
+            "0x3828 | reg28": "0x40",
+            "0x3829 | mirror_flip_cut": "0x03",
+            "0x3832 | reg32": "0x08"
+        },
+
+        "0x3800 | x_addr_start_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_addr_start[15:8]:", "Array horizontal start point (high bits)" ] }
+        ],
+
+        "0x3801 | x_addr_start_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_addr_start[7:0]:", "Array horizontal start point (low bits)" ] }
+        ],
+
+        "0x3802 | y_addr_start_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_addr_start[15:8]:", "Array vertical start point (high bits)" ] }
+        ],
+
+        "0x3803 | y_addr_start_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_addr_start[7:0]:", "Array vertical start point (low bits)" ] }
+        ],
+
+        "0x3804 | x_addr_end_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_addr_end[15:8]:", "Array horizontal end point (high bits)" ] }
+        ],
+
+        "0x3805 | x_addr_end_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_addr_end[7:0]:", "Array horizontal end point (low bits)" ] }
+        ],
+
+        "0x3806 | y_addr_end_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_addr_end[15:8]:", "Array vertical end point (high bits)" ] }
+        ],
+
+        "0x3807 | y_addr_end_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_addr_end[7:0]:", "Array vertical end point (low bits)" ] }
+        ],
+
+        "0x3808 | x_output_size_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_output_size[15:8]:", "ISP horizontal output width (high bits)" ] }
+        ],
+
+        "0x3809 | x_output_size_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_output_size[7:0]:", "ISP horizontal output width (low bits)" ] }
+        ],
+
+        "0x380A | y_output_size_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_output_size[15:8]:", "ISP vertical output height (high bits)" ] }
+        ],
+
+        "0x380B | y_output_size_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_output_size[7:0]:", "ISP vertical output height (low bits)" ] }
+        ],
+
+        "0x380C | HTS_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "HTS[15:8]:", "Horizontal total size (high bits).\nHTS must be multiple of 6." ] }
+        ],
+
+        "0x380D | HTS_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "HTS[7:0]:", "Horizontal total size (low bits).\nHTS must be multiple of 6." ] }
+        ],
+
+        "0x380E | VTS_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "VTS[15:8]:", "Vertical total size (high bits)." ] }
+        ],
+
+        "0x380F | VTS_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "VTS[7:0]:", "Vertical total size (low bits)." ] }
+        ],
+
+        "0x3810 | x_win_offset_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_win_offset[15:8]:", "ISP horizontal windowing offset (high bits)" ] }
+        ],
+
+        "0x3811 | x_win_offset_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "x_win_offset[7:0]:", "ISP horizontal windowing offset (low bits)" ] }
+        ],
+
+        "0x3812 | y_win_offset_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_win_offset[15:8]:", "ISP vertical windowing offset (high bits)" ] }
+        ],
+
+        "0x3813 | y_win_offset_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "y_win_offset[7:0]:", "ISP vertical windowing offset (low bits)" ] }
+        ],
+
+        "0x3814 | x_odd_increment": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "x_odd_increment:" ] }
+        ],
+
+        "0x3815 | x_even_increment": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "x_even_increment:" ] }
+        ],
+
+        "0x3816 | y_odd_increment": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "y_odd_increment:" ] }
+        ],
+
+        "0x3817 | y_even_increment": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "y_even_increment:" ] }
+        ],
+
+        "0x3818 | vsync_start_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "vsync_start[15:8]:", "VSYNC start point (high bits)" ] }
+        ],
+
+        "0x3819 | vsync_start_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "vsync_start[7:0]:", "VSYNC start point (low bits)" ] }
+        ],
+
+        "0x381A | vsync_end_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "vsync_end[15:8]:", "VSYNC end point (high bits)" ] }
+        ],
+
+        "0x381B | vsync_end_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "vsync_end[7:0]:", "VSYNC end point (low bits)" ] }
+        ],
+
+        "0x381C | BLC_num_option": [
+            { "attr": [ "7:5", "RW", "udecimal", "BLC_adj:", "FIXME: Black Level Calibration adjustment parameter??" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "BLC_use_num:", "FIXME: Use counter??" ] }
+        ],
+
+        "0x381D | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x381E | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x3820 | format1": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            {
+                "attr": [ "5", "RW", "enum", "blackline_vflip:", "Whether to enable black line vertical flip" ],
+                "desc": {
+                    "0": "Normal",
+                    "1": "Vertical Flip"
+                }
+            },
+            {
+                "attr": [ "4", "RW", "enum", "image_vflip:", "Whether to enable image vertical flip" ],
+                "desc": {
+                    "0": "Normal",
+                    "1": "Vertical Flip"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "image_mirror:", "Whether to disable image horizontal mirror" ],
+                "desc": {
+                    "0": "Horizontal Mirror",
+                    "1": "Normal"
+                }
+            },
+            { "attr": [ "2", "RW", "reserved" ] },
+            { "attr": [ "1", "RW", "bool", "hbin2_o:", "FIXME: What's this??" ] },
+            { "attr": [ "0", "RW", "bool", "vbinf_o:", "FIXME: What's this??" ] }
+        ],
+
+        "0x3821 | format2": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1", "RW", "bool", "hdr_en_o:", "FIXME: What's this??" ] },
+            { "attr": [ "0", "RW", "bool", "vsub48_blc:", "FIXME: What's this??" ] }
+        ],
+
+        "0x3822 | reg22": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "fix_cnt_en:", "FIXME: What's this??" ] },
+            { "attr": [ "4", "RW", "bool", "vts_add_dis:", "FIXME: What's this??" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "grp_adj:", "FIXME: Group adjustment parameter??" ] }
+        ],
+
+        "0x3823 | reg23": [
+            { "attr": [ "7", "RW", "bool", "ext_vs_re:", "FIXME: What's this??" ] },
+            { "attr": [ "6", "RW", "bool", "ext_vs_en:", "FIXME: What's this??" ] },
+            { "attr": [ "5", "RW", "bool", "vts_no_latch:", "FIXME: What's this??" ] },
+            { "attr": [ "4", "RW", "bool", "init_man:", "FIXME: What's this??" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "grp_adj:", "FIXME: Group adjustment parameter??" ] }
+        ],
+
+        "0x3824 | CS_reset_FSIN_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "CS_reset_FSIN[15:8]:", "CS reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does CS mean??" ] }
+        ],
+
+        "0x3825 | CS_reset_FSIN_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "CS_reset_FSIN[7:0]:", "CS reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does CS mean??" ] }
+        ],
+
+        "0x3826 | R_reset_FSIN_high": [
+            { "attr": [ "7:0", "RW", "udecimal", "R_reset_FSIN[15:8]:", "R reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does R mean??" ] }
+        ],
+
+        "0x3827 | R_reset_FSIN_low": [
+            { "attr": [ "7:0", "RW", "udecimal", "R_reset_FSIN[7:0]:", "R reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does R mean??" ] }
+        ],
+
+        "0x3828 | reg28": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            { "attr": [ "6:0", "RW", "udecimal", "blc_num_o:", "FIXME: What's this??" ] }
+        ],
+
+        "0x3829 | mirror_flip_cut": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "flip_cut_opt:", "FIXME: What's this??" ] },
+            { "attr": [ "1", "RW", "bool", "flip_cut:" ] },
+            { "attr": [ "0", "RW", "bool", "mirror_cut:" ] }
+        ],
+
+        "0x3832 | reg32": [
+            { "attr": [ "7:4", "RW", "udecimal", "vsync_width:" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "init_offset:", "FIXME: What's this for??" ] }
+        ]
     },
 
     "One-Time-Programing Control | [3D80, 3D95]": {
@@ -396,7 +1001,7 @@
             { "attr": [ "7:4", "RW", "reserved" ] },
             { "attr": [ "3", "RW", "bool", "send_sof_after_line0:" ] },
             { "attr": [ "2", "RW", "bool", "fcnt_eof_select:" ] },
-            { "attr": [ "1", "RW", "bool", "fcnt_mask_dis:", "FIXME: What does dis mean??" ] },
+            { "attr": [ "1", "RW", "bool", "fcnt_mask_disable:" ] },
             { "attr": [ "0", "RW", "bool", "fcnt_reset:" ] }
         ],
 
@@ -411,14 +1016,14 @@
         ],
 
         "0x4903 | R3": [
-            { "attr": [ "7", "RW", "bool", "zero_line_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "6", "RW", "bool", "rblue_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "5", "RW", "bool", "data_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "4", "RW", "bool", "valid_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "3", "RW", "bool", "href_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "2", "RW", "bool", "eof_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "1", "RW", "bool", "sof_mask_dis:", "FIXME: What does dis mean??" ] },
-            { "attr": [ "0", "RW", "bool", "all_mask_dis:", "FIXME: What does dis mean??" ] }
+            { "attr": [ "7", "RW", "bool", "disable_zero_line_mask:" ] },
+            { "attr": [ "6", "RW", "bool", "disable_rblue_mask:" ] },
+            { "attr": [ "5", "RW", "bool", "disable_data_mask:" ] },
+            { "attr": [ "4", "RW", "bool", "disable_valid_mask:" ] },
+            { "attr": [ "3", "RW", "bool", "disable_href_mask:" ] },
+            { "attr": [ "2", "RW", "bool", "disable_eof_mask:" ] },
+            { "attr": [ "1", "RW", "bool", "disable_sof_mask:" ] },
+            { "attr": [ "0", "RW", "bool", "disable_all_mask:" ] }
         ]
     },
 
@@ -509,7 +1114,7 @@
         ],
 
         "0x4D14 | latched_value_decimal_part": [
-            { "attr": [ "7:0", "RO", "udecimal", "value:", "Latched Temperature Value, Decimal Part" ] }
+            { "attr": [ "7:0", "RO", "udecimal", "value:", "Latched Temperature Value, Decimal/Fraction Part" ] }
         ]
     },
 
