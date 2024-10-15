@@ -696,7 +696,234 @@
 
     "Analog Control | [3600, 36F2]": {
         "__defaults__": {
-        }
+            "0x3661 | core_top_reg01": "0x80",
+            "0x3662 | core_top_reg02": "0x12",
+            "0x3663 | core_top_reg03": "0x26",
+            "0x3664 | core_top_reg04": "0x70",
+            "0x3665 | core_top_reg05": "0x07"
+        },
+
+        "0x3600~0x3629 | Analog Control": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x3660 | core_top_reg00": [
+            { "attr": [ "7", "RW", "bool", "debug_mode:" ] },
+            { "attr": [ "6", "RW", "bool", "disallow_otp_reset:", "Allow/Disallow software reset to reset OTP" ] },
+            { "attr": [ "5", "RW", "bool", "disallow_analog_reset:", "Allow/Disallow software reset to reset analog circuit" ] },
+            {
+                "attr": [ "4", "RW", "enum", "pll1_sysclk_source:", "PLL1 System Clock (SCLK) source" ],
+                "desc": {
+                    "0": "From PLL1",
+                    "1": "From PLL2"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "fmt_eof_source:", "Format End-of-Frame input source" ],
+                "desc": {
+                    "0": "From ISPFC EOF",
+                    "1": "From MIPI EOF"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "mipi_sof_source:", "MIPI Start-of-Frame input source" ],
+                "desc": {
+                    "0": "From timing control SOF (original SOF)",
+                    "1": "From ISPFC SOF (after ripple delay)"
+                }
+            },
+            {
+                "attr": [ "1", "RW", "enum", "pll2_sysclk_source:", "PLL2 SCLK is used as TCLK after a series of multiplexers" ],
+                "desc": {
+                    "0": "From pll2_mux_sclk",
+                    "1": "From pll2_daclk"
+                }
+            },
+            { "attr": [ "0", "RW", "bool", "disallow_mipi_clk_low_power:", "Allow/Disallow MIPI clock to enter into low power mode" ] }
+        ],
+
+        "0x3661 | core_top_reg01": [
+            {
+                "attr": [ "7", "RW", "enum", "pll_sa1_clk_source:" ],
+                "desc": {
+                    "0": "From sa1_clk_d24 (divided pll1_sclk)",
+                    "1": "From pll1_sclk"
+                }
+            },
+            {
+                "attr": [ "6:4", "RW", "enum", "isp_output_bit_shift:" ],
+                "desc": {
+                    "0": "No shift",
+                    "1": "Left shift 1 bit",
+                    "2": "Left shift 2 bits",
+                    "3": "Left shift 3 bits",
+                    "*": "Left shift 4 bits"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "isp_bypass:", "Normal data path (no bypass), or from sync FIFO" ],
+                "desc": {
+                    "0": "No bypass, normal data path",
+                    "1": "Bypass ISP data, HREF, valid"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "bit_shift_clip:" ],
+                "desc": {
+                    "0": "No clip, add zero at low bits",
+                    "1": "Clip all to one when one is shifted out"
+                }
+            },
+            {
+                "attr": [ "1", "RW", "enum", "pll_pump_clk_source:" ],
+                "desc": {
+                    "0": "From pll2_sclk",
+                    "1": "From pll1_sclk"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "pll2_mux_clk_source:" ],
+                "desc": {
+                    "0": "From pll2_sclk",
+                    "1": "From pll1_sclk"
+                }
+            }
+        ],
+
+        "0x3662 | core_top_reg02": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "blc_black_linenum:", "Black line number used for Black Level Calibration" ] }
+        ],
+
+        "0x3663 | core_top_reg03": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            {
+                "attr": [ "6:5", "RW", "enum", "io_drive_capability:" ],
+                "desc": {
+                    "0": "1x",
+                    "1": "2x",
+                    "2": "3x",
+                    "3": "4x"
+                }
+            },
+            { "attr": [ "4:3", "RW", "reserved" ] },
+            {
+                "attr": [ "2", "RW", "enum", "fsin_selection:", "Choose Frame Sync Input." ],
+                "desc": {
+                    "0": "Enable FSIN input",
+                    "1": "Fixed at 0"
+                }
+            },
+            {
+                "attr": [ "1", "RW", "enum", "vsync_selection:" ],
+                "desc": {
+                    "0": "Enable VSYNC input",
+                    "1": "Fixed at 0"
+                }
+            },
+            { "attr": [ "0", "RW", "reserved" ] }
+        ],
+
+        "0x3664 | core_top_reg04": [
+            {
+                "attr": [ "7", "RW", "enum", "otp_reset:" ],
+                "desc": {
+                    "0": "No effect on OTP reset",
+                    "1": "Force to reset OTP"
+                }
+            },
+            { "attr": [ "6", "RW", "bool", "enable_group_hold:", "Enable/Disable group hold SRAM chip selection." ] },
+            { "attr": [ "5", "RW", "bool", "enable_otp_fifo_sram:", "Enable/Disable OTP FIFO SRAM chip selection." ] },
+            { "attr": [ "4", "RW", "bool", "enable_sync_fifo_sram:", "Enable/Disable sync_fifo SRAM chip selection." ] },
+            {
+                "attr": [ "3", "RW", "enum", "pll2_sram_clk_real_source:" ],
+                "desc": {
+                    "0": "From pll2_sram_clk2x",
+                    "1": "From pll1_sram_clk1x"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "tc_sof_source:", "Sync source of Start-of-Frame in SCLK domain" ],
+                "desc": {
+                    "0": "From sync FIFO SOF (after delay)",
+                    "1": "From timing control SOF (original SOF)"
+                }
+            },
+            { "attr": [ "1:0", "RW", "udecimal", "analog_debug:" ] }
+        ],
+
+        "0x3665 | core_top_reg05": [
+            { "attr": [ "7:4", "RW", "udecimal", "analog_timing_ctrl:" ] },
+            {
+                "attr": [ "3", "RW", "enum", "sa1clk_d24_result:" ],
+                "desc": {
+                    "0": "As sa1_clk_d2",
+                    "1": "As sa1_clk_d4"
+                }
+            },
+            { "attr": [ "2:0", "RW", "reserved" ] }
+        ],
+
+        "0x3666~0x3673 | Analog Voltage Control": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x3674 | core_top_reg14": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "udecimal", "dpcm_raw12:", "No 12-bit, fixed at 0" ] },
+            {
+                "attr": [ "1", "RW", "enum", "dpcm_bypass_in2:" ],
+                "desc": {
+                    "0": "Normal DPCM compression",
+                    "1": "If (data_i[1:0] >= 2) data_o[9:2]++"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "dpcm_status:" ],
+                "desc": {
+                    "0": "Bypass DPCM",
+                    "1": "Enable DPCM"
+                }
+            }
+        ],
+
+        "0x3675~0x367E | Analog Voltage Control": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x367F | core_top_reg1F": [
+            { "attr": [ "7:1", "RW", "reserved" ] },
+            {
+                "attr": [ "0", "RW", "enum", "pll_sram_clk2x_source:" ],
+                "desc": {
+                    "0": "From pll1_sclk",
+                    "1": "From pll2_sram_clk2x"
+                }
+            }
+        ],
+
+        "0x3680~0x3684 | Analog Voltage Control": [
+            { "attr": [ "7:0", "RW", "missing" ] }
+        ],
+
+        "0x36F0 | core_top_read0": [
+            { "attr": [ "7:0", "RO", "udecimal", "debug_mode:" ] }
+        ],
+
+        "0x36F1 | core_top_read1": [
+            { "attr": [ "7", "RO", "reserved" ] },
+            { "attr": [ "6", "RO", "bool", "vsync_i_buf:" ] },
+            { "attr": [ "5", "RO", "bool", "tpm_db_i_buf:" ] },
+            { "attr": [ "4", "RO", "bool", "pwdn_buf:" ] },
+            { "attr": [ "3", "RO", "bool", "tm_buf:" ] },
+            { "attr": [ "2", "RO", "bool", "rst_n_buf:" ] },
+            { "attr": [ "1", "RO", "bool", "fsin_i_buf:" ] },
+            { "attr": [ "0", "RO", "bool", "sid_buf:" ] }
+        ],
+
+        "0x36F2 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ]
     },
 
     "Sensor Top Control | [3700, 37FF]": {
