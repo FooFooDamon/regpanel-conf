@@ -63,11 +63,11 @@
 
         "0x0301 | pll1_multiplier_high": [
             { "attr": [ "7:2", "RW", "reserved" ] },
-            { "attr": [ "1:0", "RW", "udecimal", "multiplier[9:8]:" ] }
+            { "attr": [ "1:0", "RW", "hex", "multiplier[9:8]:" ] }
         ],
 
         "0x0302 | pll1_multiplier_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "multiplier[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "multiplier[7:0]:" ] }
         ],
 
         "0x0303 | pll1_divpx": [
@@ -136,11 +136,11 @@
 
         "0x030C | pll2_r_divp_high": [
             { "attr": [ "7:2", "RW", "reserved" ] },
-            { "attr": [ "1:0", "RW", "udecimal", "r_divp[9:8]:" ] }
+            { "attr": [ "1:0", "RW", "hex", "r_divp[9:8]:" ] }
         ],
 
         "0x030D | pll2_r_divp_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "r_divp[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "r_divp[7:0]:" ] }
         ],
 
         "0x030E | pll2_sramdiv": [
@@ -969,83 +969,83 @@
         },
 
         "0x3800 | x_addr_start_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_addr_start[15:8]:", "Array horizontal start point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_addr_start[15:8]:", "Array horizontal start point (high bits)" ] }
         ],
 
         "0x3801 | x_addr_start_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_addr_start[7:0]:", "Array horizontal start point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_addr_start[7:0]:", "Array horizontal start point (low bits)" ] }
         ],
 
         "0x3802 | y_addr_start_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_addr_start[15:8]:", "Array vertical start point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_addr_start[15:8]:", "Array vertical start point (high bits)" ] }
         ],
 
         "0x3803 | y_addr_start_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_addr_start[7:0]:", "Array vertical start point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_addr_start[7:0]:", "Array vertical start point (low bits)" ] }
         ],
 
         "0x3804 | x_addr_end_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_addr_end[15:8]:", "Array horizontal end point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_addr_end[15:8]:", "Array horizontal end point (high bits)" ] }
         ],
 
         "0x3805 | x_addr_end_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_addr_end[7:0]:", "Array horizontal end point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_addr_end[7:0]:", "Array horizontal end point (low bits)" ] }
         ],
 
         "0x3806 | y_addr_end_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_addr_end[15:8]:", "Array vertical end point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_addr_end[15:8]:", "Array vertical end point (high bits)" ] }
         ],
 
         "0x3807 | y_addr_end_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_addr_end[7:0]:", "Array vertical end point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_addr_end[7:0]:", "Array vertical end point (low bits)" ] }
         ],
 
         "0x3808 | x_output_size_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_output_size[15:8]:", "ISP horizontal output width (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_output_size[15:8]:", "ISP horizontal output width (high bits)" ] }
         ],
 
         "0x3809 | x_output_size_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_output_size[7:0]:", "ISP horizontal output width (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_output_size[7:0]:", "ISP horizontal output width (low bits)" ] }
         ],
 
         "0x380A | y_output_size_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_output_size[15:8]:", "ISP vertical output height (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_output_size[15:8]:", "ISP vertical output height (high bits)" ] }
         ],
 
         "0x380B | y_output_size_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_output_size[7:0]:", "ISP vertical output height (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_output_size[7:0]:", "ISP vertical output height (low bits)" ] }
         ],
 
         "0x380C | HTS_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "HTS[15:8]:", "Horizontal total size (high bits).\nHTS must be multiple of 6." ] }
+            { "attr": [ "7:0", "RW", "hex", "HTS[15:8]:", "Horizontal total size (high bits).\nHTS must be multiple of 6." ] }
         ],
 
         "0x380D | HTS_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "HTS[7:0]:", "Horizontal total size (low bits).\nHTS must be multiple of 6." ] }
+            { "attr": [ "7:0", "RW", "hex", "HTS[7:0]:", "Horizontal total size (low bits).\nHTS must be multiple of 6." ] }
         ],
 
         "0x380E | VTS_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "VTS[15:8]:", "Vertical total size (high bits)." ] }
+            { "attr": [ "7:0", "RW", "hex", "VTS[15:8]:", "Vertical total size (high bits)." ] }
         ],
 
         "0x380F | VTS_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "VTS[7:0]:", "Vertical total size (low bits)." ] }
+            { "attr": [ "7:0", "RW", "hex", "VTS[7:0]:", "Vertical total size (low bits)." ] }
         ],
 
         "0x3810 | x_win_offset_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_win_offset[15:8]:", "ISP horizontal windowing offset (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_win_offset[15:8]:", "ISP horizontal windowing offset (high bits)" ] }
         ],
 
         "0x3811 | x_win_offset_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_win_offset[7:0]:", "ISP horizontal windowing offset (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_win_offset[7:0]:", "ISP horizontal windowing offset (low bits)" ] }
         ],
 
         "0x3812 | y_win_offset_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_win_offset[15:8]:", "ISP vertical windowing offset (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_win_offset[15:8]:", "ISP vertical windowing offset (high bits)" ] }
         ],
 
         "0x3813 | y_win_offset_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_win_offset[7:0]:", "ISP vertical windowing offset (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_win_offset[7:0]:", "ISP vertical windowing offset (low bits)" ] }
         ],
 
         "0x3814 | x_odd_increment": [
@@ -1069,19 +1069,19 @@
         ],
 
         "0x3818 | vsync_start_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "vsync_start[15:8]:", "VSYNC start point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "vsync_start[15:8]:", "VSYNC start point (high bits)" ] }
         ],
 
         "0x3819 | vsync_start_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "vsync_start[7:0]:", "VSYNC start point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "vsync_start[7:0]:", "VSYNC start point (low bits)" ] }
         ],
 
         "0x381A | vsync_end_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "vsync_end[15:8]:", "VSYNC end point (high bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "vsync_end[15:8]:", "VSYNC end point (high bits)" ] }
         ],
 
         "0x381B | vsync_end_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "vsync_end[7:0]:", "VSYNC end point (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "vsync_end[7:0]:", "VSYNC end point (low bits)" ] }
         ],
 
         "0x381C | BLC_num_option": [
@@ -1147,19 +1147,19 @@
         ],
 
         "0x3824 | CS_reset_FSIN_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "CS_reset_FSIN[15:8]:", "CS reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does CS mean??" ] }
+            { "attr": [ "7:0", "RW", "hex", "CS_reset_FSIN[15:8]:", "CS reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does CS mean??" ] }
         ],
 
         "0x3825 | CS_reset_FSIN_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "CS_reset_FSIN[7:0]:", "CS reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does CS mean??" ] }
+            { "attr": [ "7:0", "RW", "hex", "CS_reset_FSIN[7:0]:", "CS reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does CS mean??" ] }
         ],
 
         "0x3826 | R_reset_FSIN_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "R_reset_FSIN[15:8]:", "R reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does R mean??" ] }
+            { "attr": [ "7:0", "RW", "hex", "R_reset_FSIN[15:8]:", "R reset value of Frame Sync Input at vs_ext (high bits).\nFIXME: What does R mean??" ] }
         ],
 
         "0x3827 | R_reset_FSIN_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "R_reset_FSIN[7:0]:", "R reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does R mean??" ] }
+            { "attr": [ "7:0", "RW", "hex", "R_reset_FSIN[7:0]:", "R reset value of Frame Sync Input at vs_ext (low bits).\nFIXME: What does R mean??" ] }
         ],
 
         "0x3828 | reg28": [
@@ -1197,16 +1197,16 @@
         },
 
         "0x4300 | clip_max_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "clip_max[11:4]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "clip_max[11:4]:" ] }
         ],
 
         "0x4301 | clip_min_high": [
-            { "attr": [ "7:0", "RW", "udecimal", "clip_min[11:4]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "clip_min[11:4]:" ] }
         ],
 
         "0x4302 | clip_low": [
-            { "attr": [ "7:4", "RW", "udecimal", "clip_min[3:0]:" ] },
-            { "attr": [ "3:0", "RW", "udecimal", "clip_max[3:0]:" ] }
+            { "attr": [ "7:4", "RW", "hex", "clip_min[3:0]:" ] },
+            { "attr": [ "3:0", "RW", "hex", "clip_max[3:0]:" ] }
         ]
     },
 
@@ -1347,7 +1347,425 @@
 
     "ISP Control | [5000, 5049]": {
         "__defaults__": {
-        }
+            "0x5000 | isp_switches": "0xED",
+            "0x5001 | signal_relations": "0x07",
+            "0x5005 | m_nMF": "0x02",
+            "0x5007 | manual_real_gain_for_long_exposure_low": "0x10",
+            "0x5009 | manual_real_gain_for_short_exposure_low": "0x10",
+            "0x500B | manual_BLC_for_long_exposure_low": "0x10",
+            "0x500D | manual_BLC_for_short_exposure_low": "0x10",
+            "0x5010 | manual_long_exposure_low": "0x10",
+            "0x5012 | manual_Hsize_high": "0x10",
+            "0x5013 | manual_Hsize_low": "0x80",
+            "0x5014 | manual_Vsize_high": "0x0C",
+            "0x5015 | manual_Vsize_low": "0x40",
+
+            "0x5016 | m_nPDCycleX_for_long_exposure": "0x20",
+            "0x5017 | m_nPDCycleY_for_long_exposure": "0x20",
+            "0x5018 | m_nPDY_for_long_exposure": "0x02",
+            "0x5019 | m_nPDX1_for_long_exposure": "0x02",
+            "0x501A | m_nPDX2_for_long_exposure": "0x0A",
+            "0x501B | m_nPDX3_for_long_exposure": "0x06",
+            "0x501C | m_nPDX4_for_long_exposure": "0x0E",
+            "0x501F | m_nWinXStart_for_long_exposure_low": "0x40",
+            "0x5021 | m_nWinYStart_for_long_exposure_low": "0x40",
+            "0x5022 | m_nWinWidth_for_long_exposure_high": "0x0C",
+            "0x5023 | m_nWinWidth_for_long_exposure_low": "0x80",
+            "0x5024 | m_nWinHeight_for_long_exposure_high": "0x0B",
+            "0x5025 | m_nWinHeight_for_long_exposure_low": "0x40",
+
+            "0x5026 | m_nPDCycleX_for_short_exposure": "0x20",
+            "0x5027 | m_nPDCycleY_for_short_exposure": "0x20",
+            "0x5028 | m_nPDY_for_short_exposure": "0x02",
+            "0x5029 | m_nPDX1_for_short_exposure": "0x02",
+            "0x502A | m_nPDX2_for_short_exposure": "0x0A",
+            "0x502B | m_nPDX3_for_short_exposure": "0x06",
+            "0x502C | m_nPDX4_for_short_exposure": "0x0E",
+            "0x502F | m_nWinXStart_for_short_exposure_low": "0x40",
+            "0x5031 | m_nWinYStart_for_short_exposure_low": "0x40",
+            "0x5032 | m_nWinWidth_for_short_exposure_high": "0x0C",
+            "0x5033 | m_nWinWidth_for_short_exposure_low": "0x80",
+            "0x5034 | m_nWinHeight_for_short_exposure_high": "0x0B",
+            "0x5035 | m_nWinHeight_for_short_exposure_low": "0x40",
+
+            "0x5040 | BLC_switches": "0x19",
+            "0x5041 | PD_win_x_offset_for_auto_calc": "0x50",
+            "0x5043 | PD_win_width_div32_for_auto_calc": "0x80",
+            "0x5044 | PD_win_height_div32_for_auto_calc": "0x5E",
+            "0x5045 | PD_map_y_offset_for_auto_calc": "0x20",
+            "0x5046 | PD_map_x1_offset_for_auto_calc": "0x20",
+            "0x5047 | PD_map_x2_offset_for_auto_calc": "0xA4",
+            "0x5048 | PD_map_x3_offset_for_auto_calc": "0x20",
+            "0x5049 | PD_map_x4_offset_for_auto_calc": "0xA4"
+        },
+
+        "0x5000 | isp_switches": [
+            { "attr": [ "7", "RW", "bool", "enable_WINC:", "Whether to enable Window Cut" ] },
+            { "attr": [ "6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "enable_DPC:", "Whether to enable Defective Pixel Cancellation" ] },
+            { "attr": [ "4", "RW", "bool", "enable_OTP:", "Whether to enable One-Time-Programmable memory" ] },
+            { "attr": [ "3", "RW", "bool", "enable_WB_gain:", "Whether to enable White Balance gain" ] },
+            { "attr": [ "2", "RW", "bool", "enable_LENC:", "Whether to enable Lens Correction" ] },
+            { "attr": [ "1", "RW", "bool", "enable_PD_bypass:", "Whether to enable Photodiode bypass" ] },
+            { "attr": [ "0", "RW", "bool", "enable_ISP:", "Whether to enable Image Signal Processor\nFIXME: Should it be pre_ISP??" ] }
+        ],
+
+        "0x5001 | signal_relations": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            {
+                "attr": [ "3", "RW", "enum", "ctrl_signal_latch_mode:" ],
+                "desc": {
+                    "0": "Enablement takes effect immediately",
+                    "1": "Enablement takes effect at next frame"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "PD_erase_timepoint:", "When to erase Photodiode pixel array" ],
+                "desc": {
+                    "0": "After Lens Correction",
+                    "1": "Before Lens Correction"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "enable_PD_pixel_check_for_DPC:", "Whether to enable Photodiode pixel check for Defective Pixel Cancellation" ] },
+            {
+                "attr": [ "0", "RW", "enum", "href_after_reset:" ],
+                "desc": {
+                    "0": "Input HREF immediately",
+                    "1": "Input HREF until next image"
+                }
+            }
+        ],
+
+        "0x5002 | manual_mode_switches_1": [
+            { "attr": [ "7", "RW", "bool", "manual_flip:" ] },
+            { "attr": [ "6", "RW", "bool", "manual_mirror:" ] },
+            { "attr": [ "5", "RW", "bool", "manual_HDR_pattern:" ] },
+            { "attr": [ "4", "RW", "bool", "manual_work_mode:" ] },
+            { "attr": [ "3", "RW", "udecimal", "flip_manual_mode:" ] },
+            { "attr": [ "2", "RW", "udecimal", "mirror_manual_mode:" ] },
+            { "attr": [ "1", "RW", "udecimal", "HDR_pattern_manual_mode:" ] },
+            { "attr": [ "0", "RW", "udecimal", "work_mode_manual_mode:" ] }
+        ],
+
+        "0x5003 | sof_eof_sel_and_manual_mode_switches": [
+            {
+                "attr": [ "7", "RW", "enum", "SOF_selection:", "Which one and when to generate Start-of-Frame signal" ],
+                "desc": {
+                    "0": "Pre-ISP outputs SOF",
+                    "1": "When ISP inputs first pixel"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "EOF_selection:", "Which one and when to generate End-of-Frame signal" ],
+                "desc": {
+                    "0": "When ISP inputs last pixel",
+                    "1": "Window outputs EOF"
+                }
+            },
+            { "attr": [ "5:4", "RW", "udecimal", "manual_CFA_pattern:", "Manual Color Filter Array pattern" ] },
+            { "attr": [ "3", "RW", "udecimal", "exposure_manual_mode:" ] },
+            { "attr": [ "2", "RW", "udecimal", "real_gain_manual_mode:" ] },
+            { "attr": [ "1", "RW", "udecimal", "BLC_manual_mode:", "Black Level Calibration manual mode" ] },
+            { "attr": [ "0", "RW", "udecimal", "CFA_pattern_manual_mode:", "Color Filter Array pattern manual mode" ] }
+        ],
+
+        "0x5004 | manual_mode_switches_2": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "enable_PD_pixel_check_for_long_exposure:" ] },
+            { "attr": [ "3", "RW", "bool", "enable_PD_pixel_check_for_short_exposure:" ] },
+            { "attr": [ "2", "RW", "udecimal", "PD_location_manual_mode:" ] },
+            { "attr": [ "1", "RW", "udecimal", "image_size_manual_mode:" ] },
+            { "attr": [ "0", "RW", "udecimal", "isp_module_work_manual_mode:" ] }
+        ],
+
+        "0x5005 | m_nMF": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "udecimal", "m_nMF:", "m_nMF option for Photodiode bypass" ] }
+        ],
+
+        "0x5006 | manual_real_gain_for_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "real_gain[11:8]:" ] }
+        ],
+
+        "0x5007 | manual_real_gain_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "real_gain[7:0]:" ] }
+        ],
+
+        "0x5008 | manual_real_gain_for_short_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "real_gain[11:8]:" ] }
+        ],
+
+        "0x5009 | manual_real_gain_for_short_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "real_gain[7:0]:" ] }
+        ],
+
+        "0x500A | manual_BLC_for_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "BLC[11:8]:" ] }
+        ],
+
+        "0x500B | manual_BLC_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "BLC[7:0]:" ] }
+        ],
+
+        "0x500C | manual_BLC_for_short_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "BLC[11:8]:" ] }
+        ],
+
+        "0x500D | manual_BLC_for_short_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "BLC[7:0]:" ] }
+        ],
+
+        "0x500E | manual_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "exposure[19:16]:" ] }
+        ],
+
+        "0x500F | manual_long_exposure_median": [
+            { "attr": [ "7:0", "RW", "hex", "exposure[15:8]:" ] }
+        ],
+
+        "0x5010 | manual_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "exposure[7:0]:" ] }
+        ],
+
+        "0x5011 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x5012 | manual_Hsize_high": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "hex", "size[12:8]:" ] }
+        ],
+
+        "0x5013 | manual_Hsize_low": [
+            { "attr": [ "7:0", "RW", "hex", "size[7:0]:" ] }
+        ],
+
+        "0x5014 | manual_Vsize_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "size[11:8]:" ] }
+        ],
+
+        "0x5015 | manual_Vsize_low": [
+            { "attr": [ "7:0", "RW", "hex", "size[7:0]:" ] }
+        ],
+
+        "0x5016 | m_nPDCycleX_for_long_exposure": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x5017 | m_nPDCycleY_for_long_exposure": [
+            { "ref": "0x5016 | m_nPDCycleX_for_long_exposure" }
+        ],
+
+        "0x5018 | m_nPDY_for_long_exposure": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x5019 | m_nPDX1_for_long_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x501A | m_nPDX2_for_long_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x501B | m_nPDX3_for_long_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x501C | m_nPDX4_for_long_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x501E | m_nWinXStart_for_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "m_nWinXStart[11:8]:" ] }
+        ],
+
+        "0x501F | m_nWinXStart_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "m_nWinXStart[7:0]:" ] }
+        ],
+
+        "0x5020 | m_nWinYStart_for_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "m_nWinYStart[11:8]:" ] }
+        ],
+
+        "0x5021 | m_nWinYStart_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "m_nWinYStart[7:0]:" ] }
+        ],
+
+        "0x5022 | m_nWinWidth_for_long_exposure_high": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4:0", "RW", "hex", "m_nWinWidth[12:8]:" ] }
+        ],
+
+        "0x5023 | m_nWinWidth_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "m_nWinWidth[7:0]:" ] }
+        ],
+
+        "0x5024 | m_nWinHeight_for_long_exposure_high": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "hex", "m_nWinHeight[11:8]:" ] }
+        ],
+
+        "0x5025 | m_nWinHeight_for_long_exposure_low": [
+            { "attr": [ "7:0", "RW", "hex", "m_nWinHeight[7:0]:" ] }
+        ],
+
+        "0x5026 | m_nPDCycleX_for_short_exposure": [
+            { "ref": "0x5016 | m_nPDCycleX_for_long_exposure" }
+        ],
+
+        "0x5027 | m_nPDCycleY_for_short_exposure": [
+            { "ref": "0x5016 | m_nPDCycleX_for_long_exposure" }
+        ],
+
+        "0x5028 | m_nPDY_for_short_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x5029 | m_nPDX1_for_short_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x502A | m_nPDX2_for_short_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x502B | m_nPDX3_for_short_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x502C | m_nPDX4_for_short_exposure": [
+            { "ref": "0x5018 | m_nPDY_for_long_exposure" }
+        ],
+
+        "0x502E | m_nWinXStart_for_short_exposure_high": [
+            { "ref": "0x501E | m_nWinXStart_for_long_exposure_high" }
+        ],
+
+        "0x502F | m_nWinXStart_for_short_exposure_low": [
+            { "ref": "0x501F | m_nWinXStart_for_long_exposure_low" }
+        ],
+
+        "0x5030 | m_nWinYStart_for_short_exposure_high": [
+            { "ref": "0x5020 | m_nWinYStart_for_long_exposure_high" }
+        ],
+
+        "0x5031 | m_nWinYStart_for_short_exposure_low": [
+            { "ref": "0x5021 | m_nWinYStart_for_long_exposure_low" }
+        ],
+
+        "0x5032 | m_nWinWidth_for_short_exposure_high": [
+            { "ref": "0x5022 | m_nWinWidth_for_long_exposure_high" }
+        ],
+
+        "0x5033 | m_nWinWidth_for_short_exposure_low": [
+            { "ref": "0x5023 | m_nWinWidth_for_long_exposure_low" }
+        ],
+
+        "0x5034 | m_nWinHeight_for_short_exposure_high": [
+            { "ref": "0x5024 | m_nWinHeight_for_long_exposure_high" }
+        ],
+
+        "0x5035 | m_nWinHeight_for_short_exposure_low": [
+            { "ref": "0x5025 | m_nWinHeight_for_long_exposure_low" }
+        ],
+
+        "0x5036 | gate_clock_switches_1": [
+            { "attr": [ "7", "RW", "invbool", "enable_window_gate_clk:" ] },
+            { "attr": [ "6", "RW", "invbool", "debug_mode:" ] },
+            { "attr": [ "5", "RW", "invbool", "enable_DPC_gate_clk:", "Whether to enable Defective Pixel Cancellation gate clock" ] },
+            { "attr": [ "4", "RW", "invbool", "enable_PD_bypass_gate_clk:", "Whether to enable photodiode pixel array bypass gate clock" ] },
+            { "attr": [ "3", "RW", "invbool", "enable_OTP_gate_clk:", "Whether to enable One-Time-Programmable memory gate clock" ] },
+            { "attr": [ "2", "RW", "invbool", "enable_WB_gain_gate_clk:", "Whether to enable White Balance gain gate clock" ] },
+            { "attr": [ "1", "RW", "invbool", "enable_LENC_gate_clk:", "Whether to enable Lens Correction gate clock" ] },
+            { "attr": [ "0", "RW", "invbool", "enable_ISP_top_gate_clk:", "Whether to enable Image Signal Processor top gate clock" ] }
+        ],
+
+        "0x5037 | gate_clock_switches_2": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "disable_gate_clks_during_Vblank_time:" ] },
+            { "attr": [ "1", "RW", "bool", "disable_gate_clks_during_Hblank_time:" ] },
+            { "attr": [ "0", "RW", "bool", "disable_all_gate_clks_in_isp:" ] }
+        ],
+
+        "0x5038 | DPC_SRAM_switches": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:2", "RW", "udecimal", "read_margin:" ] },
+            { "attr": [ "1", "RW", "bool", "enable_read_margin:" ] },
+            { "attr": [ "0", "RW", "bool", "DPC_SRAM_test1:" ] }
+        ],
+
+        "0x5040 | BLC_switches": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            {
+                "attr": [ "5", "RW", "enum", "BLC_digital_gain_ctrl:" ],
+                "desc": {
+                    "0": "Debug mode",
+                    "1": "Use registers 0x350A and 0x350E"
+                }
+            },
+            { "attr": [ "4", "RW", "bool", "BLC_vsync_select:" ] },
+            { "attr": [ "3", "RW", "bool", "enable_DCBLC:" ] },
+            { "attr": [ "2:1", "RW", "udecimal", "debug_mode:" ] },
+            { "attr": [ "0", "RW", "bool", "enable_BLC:" ] }
+        ],
+
+        "0x5041 | PD_win_x_offset_for_auto_calc": [
+            { "attr": [ "7:0", "RW", "udecimal", "win_x_offset:" ] }
+        ],
+
+        "0x5042 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x5043 | PD_win_width_div32_for_auto_calc": [
+            { "attr": [ "7:0", "RW", "udecimal", "win_width_div32:" ] }
+        ],
+
+        "0x5044 | PD_win_height_div32_for_auto_calc": [
+            { "attr": [ "7:0", "RW", "udecimal", "win_height_div32:" ] }
+        ],
+
+        "0x5045 | PD_map_y_offset_for_auto_calc": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:4", "RW", "udecimal", "map_y_offset:" ] },
+            { "attr": [ "3:1", "RW", "reserved" ] },
+            { "attr": [ "0", "RW", "udecimal", "map_y_offset_in_sub2_format:" ] }
+        ],
+
+        "0x5046 | PD_map_x1_offset_for_auto_calc": [
+            { "attr": [ "7:4", "RW", "udecimal", "map_x1_offset:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "map_x1_offset_in_sub2_format:" ] }
+        ],
+
+        "0x5047 | PD_map_x2_offset_for_auto_calc": [
+            { "attr": [ "7:4", "RW", "udecimal", "map_x2_offset:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "map_x2_offset_in_sub2_format:" ] }
+        ],
+
+        "0x5048 | PD_map_x3_offset_for_auto_calc": [
+            { "attr": [ "7:4", "RW", "udecimal", "map_x3_offset:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "map_x3_offset_in_sub2_format:" ] }
+        ],
+
+        "0x5049 | PD_map_x4_offset_for_auto_calc": [
+            { "attr": [ "7:4", "RW", "udecimal", "map_x4_offset:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            { "attr": [ "2:0", "RW", "udecimal", "map_x4_offset_in_sub2_format:" ] }
+        ]
     },
 
     "Pre-ISP | [5080, 50B5]": {
@@ -1368,29 +1786,29 @@
 
         "0x5100 | [Long Exposure] MWB_blue_gain_high": [
             { "attr": [ "7", "RW", "reserved" ] },
-            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in BLUE channel (high bits)" ] }
+            { "attr": [ "6:0", "RW", "hex", "gain[14:8]:", "Manual White Balance gain in BLUE channel (high bits)" ] }
         ],
 
         "0x5101 | [Long Exposure] MWB_blue_gain_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in BLUE channel (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "gain[7:0]:", "Manual White Balance gain in BLUE channel (low bits)" ] }
         ],
 
         "0x5102 | [Long Exposure] MWB_green_gain_high": [
             { "attr": [ "7", "RW", "reserved" ] },
-            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in GREEN channel (high bits)" ] }
+            { "attr": [ "6:0", "RW", "hex", "gain[14:8]:", "Manual White Balance gain in GREEN channel (high bits)" ] }
         ],
 
         "0x5103 | [Long Exposure] MWB_green_gain_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in GREEN channel (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "gain[7:0]:", "Manual White Balance gain in GREEN channel (low bits)" ] }
         ],
 
         "0x5104 | [Long Exposure] MWB_red_gain_high": [
             { "attr": [ "7", "RW", "reserved" ] },
-            { "attr": [ "6:0", "RW", "udecimal", "gain[14:8]:", "Manual White Balance gain in RED channel (high bits)" ] }
+            { "attr": [ "6:0", "RW", "hex", "gain[14:8]:", "Manual White Balance gain in RED channel (high bits)" ] }
         ],
 
         "0x5105 | [Long Exposure] MWB_red_gain_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "gain[7:0]:", "Manual White Balance gain in RED channel (low bits)" ] }
+            { "attr": [ "7:0", "RW", "hex", "gain[7:0]:", "Manual White Balance gain in RED channel (low bits)" ] }
         ],
 
         "0x5106 | [Long Exposure] MWB_gain_select": [
@@ -1492,38 +1910,38 @@
 
         "0x5405 | horizontal_scale_high": [
             { "attr": [ "7:5", "RW", "reserved" ] },
-            { "attr": [ "4:0", "RW", "udecimal", "horizontal_scale[12:8]:" ] }
+            { "attr": [ "4:0", "RW", "hex", "horizontal_scale[12:8]:" ] }
         ],
 
         "0x5406 | horizontal_scale_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "horizontal_scale[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "horizontal_scale[7:0]:" ] }
         ],
 
         "0x5407 | vertical_scale_high": [
             { "attr": [ "7:4", "RW", "reserved" ] },
-            { "attr": [ "3:0", "RW", "udecimal", "vertical_scale[11:8]:" ] }
+            { "attr": [ "3:0", "RW", "hex", "vertical_scale[11:8]:" ] }
         ],
 
         "0x5408 | vertical_scale_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "vertical_scale[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "vertical_scale[7:0]:" ] }
         ],
 
         "0x5409 | x_offset_high": [
             { "attr": [ "7:5", "RO", "reserved" ] },
-            { "attr": [ "4:0", "RO", "udecimal", "x_offset[12:8]:" ] }
+            { "attr": [ "4:0", "RO", "hex", "x_offset[12:8]:" ] }
         ],
 
         "0x540A | x_offset_low": [
-            { "attr": [ "7:0", "RO", "udecimal", "x_offset[7:0]:" ] }
+            { "attr": [ "7:0", "RO", "hex", "x_offset[7:0]:" ] }
         ],
 
         "0x540B | y_offset_high": [
             { "attr": [ "7:4", "RO", "reserved" ] },
-            { "attr": [ "3:0", "RO", "udecimal", "y_offset[11:8]:" ] }
+            { "attr": [ "3:0", "RO", "hex", "y_offset[11:8]:" ] }
         ],
 
         "0x540C | y_offset_low": [
-            { "attr": [ "7:0", "RO", "udecimal", "y_offset[7:0]:" ] }
+            { "attr": [ "7:0", "RO", "hex", "y_offset[7:0]:" ] }
         ],
 
         "0x540D | flip_mirror_skip": [
@@ -1557,38 +1975,38 @@
 
         "0x5800 | win_x_start_high": [
             { "attr": [ "7:5", "RW", "reserved" ] },
-            { "attr": [ "4:0", "RW", "udecimal", "x_start[12:8]:" ] }
+            { "attr": [ "4:0", "RW", "hex", "x_start[12:8]:" ] }
         ],
 
         "0x5801 | win_x_start_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "x_start[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "x_start[7:0]:" ] }
         ],
 
         "0x5802 | win_y_start_high": [
             { "attr": [ "7:4", "RW", "reserved" ] },
-            { "attr": [ "3:0", "RW", "udecimal", "y_start[11:8]:" ] }
+            { "attr": [ "3:0", "RW", "hex", "y_start[11:8]:" ] }
         ],
 
         "0x5803 | win_y_start_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "y_start[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "y_start[7:0]:" ] }
         ],
 
         "0x5804 | win_width_high": [
             { "attr": [ "7:5", "RW", "reserved" ] },
-            { "attr": [ "4:0", "RW", "udecimal", "width[12:8]:" ] }
+            { "attr": [ "4:0", "RW", "hex", "width[12:8]:" ] }
         ],
 
         "0x5805 | win_width_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "width[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "width[7:0]:" ] }
         ],
 
         "0x5806 | win_height_high": [
             { "attr": [ "7:4", "RW", "reserved" ] },
-            { "attr": [ "3:0", "RW", "udecimal", "height[11:8]:" ] }
+            { "attr": [ "3:0", "RW", "hex", "height[11:8]:" ] }
         ],
 
         "0x5807 | win_height_low": [
-            { "attr": [ "7:0", "RW", "udecimal", "height[7:0]:" ] }
+            { "attr": [ "7:0", "RW", "hex", "height[7:0]:" ] }
         ],
 
         "0x5808 | win_embeded_line": [
@@ -1622,20 +2040,20 @@
 
         "0x5810 | pixel_cnt_high": [
             { "attr": [ "7:5", "RO", "reserved" ] },
-            { "attr": [ "4:0", "RO", "udecimal", "pixel_cnt[12:8]:" ] }
+            { "attr": [ "4:0", "RO", "hex", "pixel_cnt[12:8]:" ] }
         ],
 
         "0x5811 | pixel_cnt_low": [
-            { "attr": [ "7:0", "RO", "udecimal", "pixel_cnt[7:0]:" ] }
+            { "attr": [ "7:0", "RO", "hex", "pixel_cnt[7:0]:" ] }
         ],
 
         "0x5812 | line_cnt_high": [
             { "attr": [ "7:4", "RO", "reserved" ] },
-            { "attr": [ "3:0", "RO", "udecimal", "line_cnt[11:8]:" ] }
+            { "attr": [ "3:0", "RO", "hex", "line_cnt[11:8]:" ] }
         ],
 
         "0x5813 | line_cnt_low": [
-            { "attr": [ "7:0", "RO", "udecimal", "line_cnt[7:0]:" ] }
+            { "attr": [ "7:0", "RO", "hex", "line_cnt[7:0]:" ] }
         ]
     }
 }
