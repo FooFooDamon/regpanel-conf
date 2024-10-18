@@ -1217,7 +1217,601 @@
 
     "MIPI | [4800, 484F]": {
         "__defaults__": {
-        }
+            "0x4807 | MIPI_CTRL_07": "0x03",
+            "0x4808 | wakeup_delay": "0x18",
+            "0x4809 | MIPI_CTRL_09": "0x04",
+            "0x480C | MIPI_CTRL_0C": "0x12",
+            "0x4810 | fcnt_max_high": "0xFF",
+            "0x4811 | fcnt_max_low": "0xFF",
+            "0x4814 | long_packet_datatype": "0x2A",
+            "0x4819 | hs_zero_min_low": "0x70",
+            "0x481B | hs_trail_min_low": "0x3C",
+            "0x481C | clk_zero_min_high": "0x01",
+            "0x481D | clk_zero_min_low": "0x2C",
+            "0x481E | clk_prepare_max": "0x5F",
+            "0x481F | clk_prepare_min": "0x26",
+            "0x4821 | clk_post_min_low": "0x3C",
+            "0x4823 | clk_trail_min_low": "0x3C",
+            "0x4825 | lpx_p_min_low": "0x32",
+            "0x4826 | hs_prepare_min": "0x32",
+            "0x4827 | hs_prepare_max": "0x55",
+            "0x4829 | hs_exit_min_low": "0x64",
+            "0x482A | ui_hs_zero_min": "0x06",
+            "0x482B | ui_hs_trail_min": "0x04",
+            "0x482E | ui_clk_post_min": "0x34",
+            "0x4831 | ui_hs_prepare": "0x64",
+            "0x4833 | mipi_packet_start_size": "0x10",
+            "0x4837 | pclk_period": "0x0E",
+            "0x483C | clk_prepare_time": "0x02",
+            "0x484A | MIPI_CTRL_4A": "0x3F",
+            "0x484B | SMIA_OPTION": "0x07",
+            "0x484D | data_lane_test_pattern": "0xB6",
+            "0x484E | frame_end_delay": "0x10",
+            "0x484F | clock_lane_test_pattern": "0x55"
+        },
+
+        "0x4800 | MIPI_CTRL_00": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            {
+                "attr": [ "5", "RW", "enum", "clock_lane_running_ctrl:" ],
+                "desc": {
+                    "0": "Free running",
+                    "1": "Gate it when no packet to transmit"
+                }
+            },
+            { "attr": [ "4", "RW", "bool", "send_sync_for_each_line:" ] },
+            { "attr": [ "3", "RW", "reserved" ] },
+            {
+                "attr": [ "2", "RW", "enum", "mipi_pclk_edge:" ],
+                "desc": {
+                    "0": "Use falling edge",
+                    "1": "Use rising edge"
+                }
+            },
+            {
+                "attr": [ "1", "RW", "enum", "clock_lane_1st_bit_value:" ],
+                "desc": {
+                    "0": "0x55",
+                    "1": "0xAA"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "LPX_for_pclk_domain:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x cycle)",
+                    "1": "Use lpx_p_min[7:0]"
+                }
+            }
+        ],
+
+        "0x4802 | MIPI_CTRL_02": [
+            {
+                "attr": [ "7", "RW", "enum", "Ths_prepare:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use hs_prepare_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "Tclk_prepare:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use clk_prepare_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "5", "RW", "enum", "Tclk_post:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use clk_post_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "4", "RW", "enum", "Tclk_tail:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use clk_tail_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "3", "RW", "enum", "Ths_exit:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use hs_exit_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "Ths_zero:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use hs_zero_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "1", "RW", "enum", "Ths_tail:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use hs_tail_min_o[7:0]"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "Tclk_zero:" ],
+                "desc": {
+                    "0": "Auto calculated (Unit: pclk2x)",
+                    "1": "Use clk_zero_min_o[7:0]"
+                }
+            }
+        ],
+
+        "0x4803 | MIPI_CTRL_03": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "fifo_rd_speed:" ] },
+            { "attr": [ "3", "RW", "bool", "Tperiod_manual_offset:" ] },
+            { "attr": [ "2", "RW", "bool", "Tperiod_half2one:" ] },
+            { "attr": [ "1:0", "RW", "reserved" ] }
+        ],
+
+        "0x4804 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4805 | mipi_retiming": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "manual_lpdata_retiming:", "FIXME: Manual Low-Power Data setting??" ] },
+            {
+                "attr": [ "2", "RW", "enum", "lpdata_retiming_selection:", "FIXME: Low-Power Data selection??" ],
+                "desc": {
+                    "0": "Not used",
+                    "1": "Manual"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "manual_lpclk_retiming:", "FIXME: Manual Low-Power Clock setting??" ] },
+            {
+                "attr": [ "0", "RW", "enum", "lpclk_retiming_selection:", "FIXME: Low-Power Clock selection??" ],
+                "desc": {
+                    "0": "Not used",
+                    "1": "Manual"
+                }
+            }
+        ],
+
+        "0x4806 | MIPI_CTRL_06": [
+            { "attr": [ "7:5", "RW", "reserved" ] },
+            { "attr": [ "4", "RW", "bool", "enable_power_up_mark1:" ] },
+            { "attr": [ "3", "RW", "bool", "mipi_remote_reset:" ] },
+            { "attr": [ "2", "RW", "bool", "mipi_suspend:" ] },
+            { "attr": [ "1", "RW", "bool", "smia_lane_ch_en:", "FIXME: What's this??" ] },
+            {
+                "attr": [ "0", "RW", "enum", "tx_bit_order:" ],
+                "desc": {
+                    "0": "High bit first",
+                    "1": "Low bit first"
+                }
+            }
+        ],
+
+        "0x4807 | MIPI_CTRL_07": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "sw_t_lpx:", "FIXME: What's this??" ] }
+        ],
+
+        "0x4808 | wakeup_delay": [
+            { "attr": [ "7:0", "RW", "udecimal", "delay:", "Mark1 wakeup delay / 2^10" ] }
+        ],
+
+        "0x4809 | MIPI_CTRL_09": [
+            {
+                "attr": [ "7", "RW", "enum", "hcnt_end_selection:" ],
+                "desc": {
+                    "0": "Not used",
+                    "1": "Use registers 0x480A and 0x480B"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "cs_cnt_end_selection:" ],
+                "desc": {
+                    "0": "Not used",
+                    "1": "cs_cnt rolls over if reaching hcnt_end"
+                }
+            },
+            { "attr": [ "5:0", "RW", "udecimal", "packet_start_offset:" ] }
+        ],
+
+        "0x480A | hcnt_end_high": [
+            { "attr": [ "7:0", "RW", "hex", "hcnt_end[15:8]:" ] }
+        ],
+
+        "0x480B | hcnt_end_low": [
+            { "attr": [ "7:0", "RW", "hex", "hcnt_end[7:0]:" ] }
+        ],
+
+        "0x480C | MIPI_CTRL_0C": [
+            { "attr": [ "7", "RW", "bool", "use_packet_start_offset:", "MIPI_CTRL_09[5:0]" ] },
+            { "attr": [ "6:4", "RW", "udecimal", "masked_line_number:", "real value = this * 2" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "fifo_start_size:" ] }
+        ],
+
+        "0x4810 | fcnt_max_high": [
+            { "attr": [ "7:0", "RW", "hex", "fcnt_max[15:8]:", "Maximum frame counter of frame sync short packet (high bits)" ] }
+        ],
+
+        "0x4811 | fcnt_max_low": [
+            { "attr": [ "7:0", "RW", "hex", "fcnt_max[7:0]:", "Maximum frame counter of frame sync short packet (low bits)" ] }
+        ],
+
+        "0x4812 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4813 | virtual_channel": [
+            { "attr": [ "7:3", "RW", "reserved" ] },
+            { "attr": [ "2", "RW", "bool", "enable:" ] },
+            { "attr": [ "1:0", "RW", "udecimal", "channel_id:" ] }
+        ],
+
+        "0x4814 | long_packet_datatype": [
+            { "attr": [ "7", "RW", "reserved" ] },
+            {
+                "attr": [ "6", "RW", "enum", "datatype_selection:" ],
+                "desc": {
+                    "0": "Use mipi_dt",
+                    "1": "Use value of bits below"
+                }
+            },
+            { "attr": [ "5:0", "RW", "udecimal", "datatype_value:", "FIXME: Should be enum??" ] }
+        ],
+
+        "0x4818 | hs_zero_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "hs_zero_min[9:8]:", "Minimum value of hs_zero (high bits)\nhs_zero = this + Tui * ui_hs_zero_min\nUnit: ns" ] }
+        ],
+
+        "0x4819 | hs_zero_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "hs_zero_min[7:0]:", "Minimum value of hs_zero (low bits)\nhs_zero = this + Tui * ui_hs_zero_min\nUnit: ns" ] }
+        ],
+
+        "0x481A | hs_trail_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "hs_trail_min[9:8]:", "Minimum value of hs_trail (high bits)\nhs_trail = this + Tui * ui_hs_trail_min\nUnit: ns" ] }
+        ],
+
+        "0x481B | hs_trail_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "hs_trail_min[7:0]:", "Minimum value of hs_trail (low bits)\nhs_trail = this + Tui * ui_hs_trail_min\nUnit: ns" ] }
+        ],
+
+        "0x481C | clk_zero_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "clk_zero_min[9:8]:", "Minimum value of clk_zero (high bits)\nclk_zero = this + Tui * ui_clk_zero_min\nUnit: ns" ] }
+        ],
+
+        "0x481D | clk_zero_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "clk_zero_min[7:0]:", "Minimum value of clk_zero (low bits)\nclk_zero = this + Tui * ui_clk_zero_min\nUnit: ns" ] }
+        ],
+
+        "0x481E | clk_prepare_max": [
+            { "attr": [ "7:0", "RW", "udecimal", "clk_prepare_max:", "Maximum value of clk_prepare (Unit: ns)" ] }
+        ],
+
+        "0x481F | clk_prepare_min": [
+            { "attr": [ "7:0", "RW", "udecimal", "clk_prepare_min:", "Minimum value of clk_prepare\nclk_prepare = this + Tui * ui_clk_prepare_min\nUnit: ns" ] }
+        ],
+
+        "0x4820 | clk_post_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "clk_post_min[9:8]:", "Minimum value of clk_post (high bits)\nclk_post = this + Tui * ui_clk_post_min\nUnit: ns" ] }
+        ],
+
+        "0x4821 | clk_post_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "clk_post_min[7:0]:", "Minimum value of clk_post (low bits)\nclk_post = this + Tui * ui_clk_post_min\nUnit: ns" ] }
+        ],
+
+        "0x4822 | clk_trail_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "clk_trail_min[9:8]:", "Minimum value of clk_trail (high bits)\nclk_trail = this + Tui * ui_clk_trail_min\nUnit: ns" ] }
+        ],
+
+        "0x4823 | clk_trail_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "clk_trail_min[7:0]:", "Minimum value of clk_trail (low bits)\nclk_trail = this + Tui * ui_clk_trail_min\nUnit: ns" ] }
+        ],
+
+        "0x4824 | lpx_p_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "lpx_p_min[9:8]:", "Minimum value of lpx_p (high bits)\nlpx_p = this + Tui * ui_lpx_p_min\nUnit: ns" ] }
+        ],
+
+        "0x4825 | lpx_p_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "lpx_p_min[7:0]:", "Minimum value of lpx_p (low bits)\nlpx_p = this + Tui * ui_lpx_p_min\nUnit: ns" ] }
+        ],
+
+        "0x4826 | hs_prepare_min": [
+            { "attr": [ "7:0", "RW", "udecimal", "hs_prepare_min:", "Minimum value of hs_prepare (Unit: ns)" ] }
+        ],
+
+        "0x4827 | hs_prepare_max": [
+            { "attr": [ "7:0", "RW", "udecimal", "hs_prepare_max:", "Maximum value of hs_prepare\nhs_prepare = this + Tui * ui_hs_prepare_max\nUnit: ns" ] }
+        ],
+
+        "0x4828 | hs_exit_min_high": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "hex", "hs_exit_min[9:8]:", "Minimum value of hs_exit_min (high bits)\nhs_exit = this + Tui * ui_hs_exit_min\nUnit: ns" ] }
+        ],
+
+        "0x4829 | hs_exit_min_low": [
+            { "attr": [ "7:0", "RW", "hex", "hs_exit_min[7:0]:", "Minimum value of hs_exit_min (low bits)\nhs_exit = this + Tui * ui_hs_exit_min\nUnit: ns" ] }
+        ],
+
+        "0x482A | ui_hs_zero_min": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5:0", "RW", "udecimal", "value:" ] }
+        ],
+
+        "0x482B | ui_hs_trail_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x482C | ui_clk_zero_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x482D | ui_clk_prepare": [
+            { "attr": [ "7:4", "RW", "udecimal", "max:" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "min:" ] }
+        ],
+
+        "0x482E | ui_clk_post_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x482F | ui_clk_trail_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x4830 | ui_lpx_p_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x4831 | ui_hs_prepare": [
+            { "ref": "0x482D | ui_clk_prepare" }
+        ],
+
+        "0x4832 | ui_hs_exit_min": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x4833 | mipi_packet_start_size": [
+            { "ref": "0x482A | ui_hs_zero_min" }
+        ],
+
+        "0x4834 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4835 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4836 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4837 | pclk_period": [
+            { "attr": [ "7:0", "RW", "udecimal", "period:", "Period of pclk2x, pclk_div = 1 and 1-bit decimal" ] }
+        ],
+
+        "0x4838 | mipi_lp_gpio0": [
+            {
+                "attr": [ "7", "RW", "enum", "lp_dir0_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_dir0",
+                    "1": "Use lp_dir0_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "lp_dir0_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "5", "RW", "bool", "lp_p0:" ] },
+            { "attr": [ "4", "RW", "bool", "lp_n0:" ] },
+            {
+                "attr": [ "3", "RW", "enum", "lp_dir1_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_dir1",
+                    "1": "Use lp_dir1_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "lp_dir1_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "lp_p1:" ] },
+            { "attr": [ "0", "RW", "bool", "lp_n1:" ] }
+        ],
+
+        "0x4839 | mipi_lp_gpio1": [
+            {
+                "attr": [ "7", "RW", "enum", "lp_dir2_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_dir2",
+                    "1": "Use lp_dir2_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "lp_dir2_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "5", "RW", "bool", "lp_p2:" ] },
+            { "attr": [ "4", "RW", "bool", "lp_n2:" ] },
+            {
+                "attr": [ "3", "RW", "enum", "lp_dir3_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_dir3",
+                    "1": "Use lp_dir3_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "lp_dir3_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "lp_p3:" ] },
+            { "attr": [ "0", "RW", "bool", "lp_n3:" ] }
+        ],
+
+        "0x483A | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x483B | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x483C | clk_prepare_time": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3:0", "RW", "udecimal", "value:", "Unit: pclk2x cycle" ] }
+        ],
+
+        "0x483D | mipi_lp_gpio4": [
+            {
+                "attr": [ "7", "RW", "enum", "lp_clk_dir0_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_clk_dir0",
+                    "1": "Use lp_clk_dir0_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "lp_clk_dir0_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "5", "RW", "bool", "lp_clk_p0:" ] },
+            { "attr": [ "4", "RW", "bool", "lp_clk_n0:" ] },
+            {
+                "attr": [ "3", "RW", "enum", "lp_clk_dir1_selection:" ],
+                "desc": {
+                    "0": "Automatically decide lp_clk_dir1",
+                    "1": "Use lp_clk_dir1_manual_ctrl below"
+                }
+            },
+            {
+                "attr": [ "2", "RW", "enum", "lp_clk_dir1_manual_ctrl:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            { "attr": [ "1", "RW", "bool", "lp_clk_p1:" ] },
+            { "attr": [ "0", "RW", "bool", "lp_clk_n1:" ] }
+        ],
+
+        "0x483E | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x483F | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4840 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4841 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4842 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4843 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4844 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4845 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4846 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4847 | Reserved": [
+            { "attr": [ "7:0", "RW", "reserved" ] }
+        ],
+
+        "0x4848 | mipi_fcnt_high": [
+            { "attr": [ "7:0", "RO", "hex", "mipi_fcnt[15:8]:" ] }
+        ],
+
+        "0x4849 | mipi_fcnt_low": [
+            { "attr": [ "7:0", "RO", "hex", "mipi_fcnt[7:0]:" ] }
+        ],
+
+        "0x484A | MIPI_CTRL_4A": [
+            { "attr": [ "7:6", "RW", "reserved" ] },
+            { "attr": [ "5", "RW", "bool", "sleep_lp_pon_manual_ctrl for power up:", "FIXME: What's this??" ] },
+            { "attr": [ "4", "RW", "bool", "sleep_lp_pon_data:", "FIXME: What's this??" ] },
+            { "attr": [ "3", "RW", "bool", "sleep_lp_pon_clock:", "FIXME: What's this??" ] },
+            { "attr": [ "2", "RW", "bool", "enable_mipi_bus_in_sleep_mode:" ] },
+            { "attr": [ "1", "RW", "bool", "clock_lane_state:" ] },
+            { "attr": [ "0", "RW", "bool", "data_lane_state:" ] }
+        ],
+
+        "0x484B | SMIA_OPTION": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            {
+                "attr": [ "1", "RW", "enum", "when_to_start_clock:" ],
+                "desc": {
+                    "0": "After Start-of-Frame",
+                    "1": "After reset"
+                }
+            },
+            {
+                "attr": [ "0", "RW", "enum", "when_to_start_frame:" ],
+                "desc": {
+                    "0": "After HREF",
+                    "1": "After Start-of-Frame"
+                }
+            }
+        ],
+
+        "0x484C | MIPI_CTRL_4C": [
+            { "attr": [ "7:4", "RW", "reserved" ] },
+            { "attr": [ "3", "RW", "bool", "smia_fcnt_selected:" ] },
+            { "attr": [ "2", "RW", "bool", "enable_prbs:" ] },
+            { "attr": [ "1", "RW", "bool", "hs_test_only:" ] },
+            { "attr": [ "0", "RW", "invbool", "inactive_fcnt:" ] }
+        ],
+
+        "0x484D | data_lane_test_pattern": [
+            { "attr": [ "7:0", "RW", "udecimal", "pattern:" ] }
+        ],
+
+        "0x484E | frame_end_delay": [
+            { "attr": [ "7:0", "RW", "udecimal", "delay:", "1/2 of time from latst packet to frame end" ] }
+        ],
+
+        "0x484F | clock_lane_test_pattern": [
+            { "attr": [ "7:2", "RW", "reserved" ] },
+            { "attr": [ "1:0", "RW", "udecimal", "pattern:" ] }
+        ]
     },
 
     "ISP Frame Control | [4900, 4903]": {
