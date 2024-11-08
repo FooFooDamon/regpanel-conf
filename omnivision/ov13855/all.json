@@ -254,8 +254,20 @@
         ],
 
         "0x3002 | pad_oen2": [
-            { "attr": [ "7", "RW", "bool", "io_fsin_oen:", "OEN of IO Frame Sync Input.\nFIXME: What does OEN mean??" ] },
-            { "attr": [ "6", "RW", "bool", "io_vsync_oen:", "OEN of IO Vertical Sync.\nFIXME: What does OEN mean??" ] },
+            {
+                "attr": [ "7", "RW", "enum", "io_fsin_dir:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
+            {
+                "attr": [ "6", "RW", "enum", "io_vsync_dir:" ],
+                "desc": {
+                    "0": "Input",
+                    "1": "Output"
+                }
+            },
             { "attr": [ "5:0", "RW", "reserved" ] }
         ],
 
@@ -280,8 +292,8 @@
         ],
 
         "0x3008 | pad_out2": [
-            { "attr": [ "7", "RW", "bool", "io_fsin_output:" ] },
-            { "attr": [ "6", "RW", "bool", "io_vsync_output:" ] },
+            { "attr": [ "7", "RW", "bool", "io_fsin_output_from_register:" ] },
+            { "attr": [ "6", "RW", "bool", "io_vsync_output_from_register:" ] },
             { "attr": [ "5:3", "RW", "reserved" ] },
             { "attr": [ "2", "RW", "bool", "io_sda_output:" ] },
             { "attr": [ "1:0", "RW", "reserved" ] }
@@ -391,7 +403,7 @@
         ],
 
         "0x3016 | mipi_options": [
-            { "attr": [ "7:5", "RW", "udecimal", "lane_mode:", "N + 1 lane" ] },
+            { "attr": [ "7:5", "RW", "udecimal", "data_lanes:", "N + 1 lane" ] },
             { "attr": [ "4", "RW", "bool", "enable_mipi:" ] },
             { "attr": [ "3:2", "RW", "udecimal", "phy_pd_mipi:", "FIXME: What's this??" ] },
             {
@@ -412,7 +424,7 @@
 
         "0x3017 | mipi_lanes_disablement": [
             { "attr": [ "7:4", "RW", "reserved" ] },
-            { "attr": [ "3:0", "RW", "hex", "value:", "FIXME: n + 1, or 1 lane per bit ??" ] }
+            { "attr": [ "3:0", "RW", "hex", "value:", "1 bit for a lane" ] }
         ],
 
         "0x3018 | clk_ctrl_1": [
