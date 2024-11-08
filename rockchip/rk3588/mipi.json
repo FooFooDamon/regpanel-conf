@@ -268,13 +268,13 @@
         "0x0034 | DIGITAL_CLK_PHASE": [
             { "attr": [ "31:8", "RO", "reserved" ] },
             { "attr": [ "7:3", "RW", "reserved" ] },
-            { "attr": [ "2:0", "RW", "udecimal", "digital_clk_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] }
+            { "attr": [ "2:0", "RW", "udecimal", "digital_clk_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] }
         ],
 
         "0x0038 | LANE_CLK_3_PHASE": [
             { "attr": [ "31:7", "RO", "reserved" ] },
-            { "attr": [ "6:4", "RW", "udecimal", "lane_clk_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] },
-            { "attr": [ "3:1", "RW", "udecimal", "lane_3_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] },
+            { "attr": [ "6:4", "RW", "udecimal", "lane_clk_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] },
+            { "attr": [ "3:1", "RW", "udecimal", "lane_3_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] },
             {
                 "attr": [ "0", "RW", "enum", "lane_2_phase_msb", "MSB of lane_2_phase in next register LANE_2_1_0_PHASE." ],
                 "desc": {
@@ -295,8 +295,8 @@
                     "3": "Phase 3 or 7"
                 }
             },
-            { "attr": [ "5:3", "RW", "udecimal", "lane_1_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] },
-            { "attr": [ "2:0", "RW", "udecimal", "lane_0_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] }
+            { "attr": [ "5:3", "RW", "udecimal", "lane_1_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] },
+            { "attr": [ "2:0", "RW", "udecimal", "lane_0_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] }
         ],
 
         "0x0048 | DIGITAL_CLK_REVERSE": [
@@ -320,9 +320,9 @@
 
         "0x00CC | LANE_CLK1_PHASE": [
             { "attr": [ "31:7", "RO", "reserved" ] },
-            { "attr": [ "6:4", "RW", "udecimal", "lane_clk1_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] },
+            { "attr": [ "6:4", "RW", "udecimal", "lane_clk1_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] },
             { "attr": [ "3", "RO", "reserved" ] },
-            { "attr": [ "2:0", "RW", "udecimal", "digital_clk1_phase:", "Phase 0 is earliest and phase 7 is latest. Each step between the adjacent phase is about 40ps." ] }
+            { "attr": [ "2:0", "RW", "udecimal", "digital_clk1_phase:", "Phase 0 is earliest and phase 7 is latest.\nEach step between the adjacent phase is about 40ps." ] }
         ],
 
         "0x0128 | LANE_CK_MODE": [
@@ -352,23 +352,23 @@
 
         "0x0140 | LANE_CK_TTAGO": [
             { "attr": [ "31:6", "RO", "reserved" ] },
-            { "attr": [ "5:0", "RW", "udecimal", "ttago:", "The value of counter for Tta-go of turnaround. Tta-go = Ttxclkesc * value" ] }
+            { "attr": [ "5:0", "RW", "udecimal", "ttago:", "The value of counter for Tta-go of turnaround.\nTta-go = Ttxclkesc * value" ] }
         ],
 
         "0x0144 | LANE_CK_TTASURE": [
             { "attr": [ "31:6", "RO", "reserved" ] },
-            { "attr": [ "5:0", "RW", "udecimal", "ttasure:", "The value of counter for Tta-sure of turnaround. Tta-sure = Ttxclkesc * value" ] }
+            { "attr": [ "5:0", "RW", "udecimal", "ttasure:", "The value of counter for Tta-sure of turnaround.\nTta-sure = Ttxclkesc * value" ] }
         ],
 
         "0x0148 | LANE_CK_TTAWAIT": [
             { "attr": [ "31:6", "RO", "reserved" ] },
-            { "attr": [ "5:0", "RW", "udecimal", "ttawait:", "The value of counter for Tta-wait of turnaround. Tta-wait = Ttxclkesc * value" ] }
+            { "attr": [ "5:0", "RW", "udecimal", "ttawait:", "The value of counter for Tta-wait of turnaround.\nTta-wait = Ttxclkesc * value" ] }
         ],
 
         "0x0160 | LANE_CK_THSSETTLE": [
             { "attr": [ "31:6", "RO", "reserved" ] },
             {
-                "attr": [ "5:0", "RW", "enum", "thssettle:", "The count time of THS-SETTLE. After the count done, D-PHY will begin to receive the high speed data." ],
+                "attr": [ "5:0", "RW", "enum", "thssettle:", "The count time of THS-SETTLE.\nAfter the count done,\nD-PHY will begin to receive the high speed data." ],
                 "desc": {
                     "*": "For < 800 or >= 2500 MHz",
                     "02": "For [80, 110) MHz",
@@ -654,7 +654,7 @@
             },
             { "attr": [ "7", "RO", "reserved" ] },
             {
-                "attr": [ "6:4", "RW", "enum", "REG_400M:", "Reference voltage-400mV/200mV for HS Function control pin, the left value is selected when I_MUX_SEL is set to 0x0 and the right value is selected when I_MUX_SEL is set to 0x1." ],
+                "attr": [ "6:4", "RW", "enum", "REG_400M:", "Reference voltage-400mV/200mV for HS Function control pin,\nthe left value is selected when I_MUX_SEL is set to 0x0,\nand the right value is selected when I_MUX_SEL is set to 0x1." ],
                 "desc": {
                     "0": "380mV / 230mV",
                     "1": "390mV / 220mV",
@@ -697,11 +697,11 @@
 
         "0x0100 | PLL_CON0": [
             { "attr": [ "31:13", "RO", "reserved" ] },
-            { "attr": [ "12", "RW", "bool", "PLL_EN:", "PLL Control Logic Block Enable Register. For using PLL in PHY module, user can set this register after setting registers." ] },
+            { "attr": [ "12", "RW", "bool", "PLL_EN:", "PLL Control Logic Block Enable Register.\nFor using PLL in PHY module,\nuser can set this register after setting registers." ] },
             { "attr": [ "11", "RO", "reserved" ] },
             { "attr": [ "10:8", "RW", "udecimal", "S:", "Register for Division Value of the 3-bit Programmable Scaler." ] },
             { "attr": [ "7:6", "RO", "reserved" ] },
-            { "attr": [ "5:0", "RW", "udecimal", "P:", "Register for Division Value of the 6-bit Programmable Pre-Divider. PLL has to be reset if P value is changed." ] }
+            { "attr": [ "5:0", "RW", "udecimal", "P:", "Register for Division Value of the 6-bit Programmable Pre-Divider.\nPLL has to be reset if P value is changed." ] }
         ],
 
         "0x0104 | PLL_CON1": [
@@ -711,18 +711,18 @@
 
         "0x0108 | PLL_CON2": [
             { "attr": [ "31:16", "RO", "reserved" ] },
-            { "attr": [ "15", "RW", "bool", "USE_SDW_REG:", "Shadow Register Enable Register. For using frequency hopping function in PHY, user can set this register before controlling the interface signal PLL_CFG_UPDT." ] },
-            { "attr": [ "14", "RW", "bool", "M_ESCREF_EN:", "M_ESCREF Output Enable Register. When user wants to measure the Escape Clock of Master Lanes, set this register." ] },
+            { "attr": [ "15", "RW", "bool", "USE_SDW_REG:", "Shadow Register Enable Register.\nFor using frequency hopping function in PHY,\nuser can set this register before controlling the interface signal PLL_CFG_UPDT." ] },
+            { "attr": [ "14", "RW", "bool", "M_ESCREF_EN:", "M_ESCREF Output Enable Register.\nWhen user wants to measure the Escape Clock of Master Lanes, set this register." ] },
             { "attr": [ "13", "RW", "bool", "FOUT_MASK:", "Register for Scaler's Re-initialization Time Control Pin." ] },
-            { "attr": [ "12", "RW", "udecimal", "FEED_EN:", "Register for Monitoring Pin. If FEED_EN is 1, FEED_OUT is enabled." ] },
+            { "attr": [ "12", "RW", "udecimal", "FEED_EN:", "Register for Monitoring Pin.\nIf FEED_EN is 1, FEED_OUT is enabled." ] },
             { "attr": [ "11:10", "RO", "reserved" ] },
-            { "attr": [ "9:0", "RW", "udecimal", "M:", "Register for Division Value of the 10-bit Programmable Main-Divider. PLL has to be reset if M value is changed." ] }
+            { "attr": [ "9:0", "RW", "udecimal", "M:", "Register for Division Value of the 10-bit Programmable Main-Divider.\nPLL has to be reset if M value is changed." ] }
         ],
 
         "0x010C | PLL_CON3": [
             { "attr": [ "31:14", "RO", "reserved" ] },
-            { "attr": [ "13:8", "RW", "udecimal", "MRR:", "Register for Value of 6-bit Modulation Rate Control. PLL has to be reset if MRR is changed." ] },
-            { "attr": [ "7:0", "RW", "udecimal", "MFR:", "Register for Value of 8-bit Modulation Frequency Control. PLL has to be reset if MFR is changed." ] }
+            { "attr": [ "13:8", "RW", "udecimal", "MRR:", "Register for Value of 6-bit Modulation Rate Control.\nPLL has to be reset if MRR is changed." ] },
+            { "attr": [ "7:0", "RW", "udecimal", "MFR:", "Register for Value of 8-bit Modulation Frequency Control.\nPLL has to be reset if MFR is changed." ] }
         ],
 
         "0x0110 | PLL_CON4": [
@@ -756,7 +756,7 @@
                     "1": "M%_DPHY_MC_GNR_CON0[ENABLE]"
                 }
             },
-            { "attr": [ "14", "RW", "bool", "F_OUT_EN:", "For sharing PLL signals with other modules, user can set this register before enabling the PLL." ] },
+            { "attr": [ "14", "RW", "bool", "F_OUT_EN:", "For sharing PLL signals with other modules,\nuser can set this register before enabling the PLL." ] },
             {
                 "attr": [ "13", "RW", "enum", "CAL_SEL_CK:", "Clock I-Q Phase Change Control Register." ],
                 "desc": {
@@ -772,7 +772,7 @@
                 }
             },
             {
-                "attr": [ "11", "RW", "enum", "SEL_EXTCLK:", "For using shared clock and clock signals by PLL of external module, user can set this register without enabling the PLL in this module." ],
+                "attr": [ "11", "RW", "enum", "SEL_EXTCLK:", "For using shared clock and clock signals by PLL of external module,\nuser can set this register without enabling the PLL in this module." ],
                 "desc": {
                     "0": "Use Internal PLL",
                     "1": "Use External PLL"
@@ -803,7 +803,7 @@
             { "attr": [ "5:4", "RW", "udecimal", "ICP:", "Register for Controlling the Charge-Pump Current." ] },
             { "attr": [ "3:2", "RO", "reserved" ] },
             {
-                "attr": [ "1:0", "RW", "enum", "SEL_PF:", "Register for Value of 2-bit Modulation Method Control. PLL has to be reset if SEL_PF is changed." ],
+                "attr": [ "1:0", "RW", "enum", "SEL_PF:", "Register for Value of 2-bit Modulation Method Control.\nPLL has to be reset if SEL_PF is changed." ],
                 "desc": {
                     "0": "Down spread",
                     "1": "Up spread",
@@ -821,8 +821,8 @@
                     "1": "Disable"
                 }
             },
-            { "attr": [ "11:8", "RW", "udecimal", "WCLK_BUF_SFT_CNT:", "Word Clock Buffer Shift Count Control Register. Value = Roundup((Word Clock Period) / 38.46 + 2)" ] },
-            { "attr": [ "7", "RW", "bool", "PLL_TEST_DIV_EN:", "For measuring frequency in ATE test environment, user can set this register and measure the divided clock frequency at the port PLL_TEST_DIV_TM." ] },
+            { "attr": [ "11:8", "RW", "udecimal", "WCLK_BUF_SFT_CNT:", "Word Clock Buffer Shift Count Control Register.\nValue = Roundup((Word Clock Period) / 38.46 + 2)" ] },
+            { "attr": [ "7", "RW", "bool", "PLL_TEST_DIV_EN:", "For measuring frequency in ATE test environment,\nuser can set this register and measure the divided clock frequency\nat the port PLL_TEST_DIV_TM." ] },
             {
                 "attr": [ "6", "RW", "enum", "D2A_CLK_BUF_EN_SEL:", "Source for enabling D2A_CLK_BUF_EN." ],
                 "desc": {
@@ -864,17 +864,17 @@
 
         "0x011C | PLL_CON7": [
             { "attr": [ "31:16", "RO", "reserved" ] },
-            { "attr": [ "15:0", "RW", "udecimal", "PLL_LOCK_CNT:", "Count value of PLL lock indication. After setting PLL_EN register, PHY lock counter starts to count. When count value reaches to the value of this register, PLL_LOCK(M%_PLL_STAT0[0]) is set to HIGH. Generally, 200us is needed for locking the PLL." ] }
+            { "attr": [ "15:0", "RW", "udecimal", "PLL_LOCK_CNT:", "Count value of PLL lock indication.\nAfter setting PLL_EN register, PHY lock counter starts to count.\nWhen count value reaches to the value of this register, PLL_LOCK(M%_PLL_STAT0[0]) is set to HIGH.\nGenerally, 200us is needed for locking the PLL." ] }
         ],
 
         "0x0120 | PLL_CON8": [
             { "attr": [ "31:16", "RO", "reserved" ] },
-            { "attr": [ "15:0", "RW", "udecimal", "PLL_STB_CNT:", "Count value of PLL stablization. After signal PLL_CFG_UPDT is asserted for frequency hopping function, PHY stabilizing counter starts to count. When count value reaches to the value of this register, signal PLL_CFG_READY is set to HIGH. Generally, 100us is needed for stablizing PLL in frequency hopping." ] }
+            { "attr": [ "15:0", "RW", "udecimal", "PLL_STB_CNT:", "Count value of PLL stablization.\nAfter signal PLL_CFG_UPDT is asserted for frequency hopping function,\nPHY stabilizing counter starts to count.\nWhen count value reaches to the value of this register,\nsignal PLL_CFG_READY is set to HIGH.\nGenerally, 100us is needed for stablizing PLL in frequency hopping." ] }
         ],
 
         "0x0140 | PLL_STAT0": [
             { "attr": [ "31:1", "RO", "reserved" ] },
-            { "attr": [ "0", "RW", "bool", "PLL_LOCK:", "This register is set when output clock of PLL is locked and ready to operate after setting PLL_EN. User can control setting timing of this register using PLL_LOCK_CNT(M0_PLL_CON7[15:0]) register. And user can control ENABLE register of each Lanes after PLL_LOCK is set." ] }
+            { "attr": [ "0", "RW", "bool", "PLL_LOCK:", "This register is set when output clock of PLL is locked and ready to operate after setting PLL_EN.\nUser can control setting timing of this register using PLL_LOCK_CNT(M0_PLL_CON7[15:0]) register.\nAnd user can control ENABLE register of each Lanes after PLL_LOCK is set." ] }
         ],
 
         "0x0300 | DPHY_MC_GNR_CON0": [
@@ -1155,13 +1155,13 @@
 
         "0x0B00 | DPHY_SC_GNR_CON0": [
             { "attr": [ "31:2", "RO", "reserved" ] },
-            { "attr": [ "1", "RO", "bool", "PHY_READY:", "This register is set when PHY is ready to operate after stablizing bias. User can control setting timing of this register using DPHY_SC_GNR_CON1[T_PHY_READY]. And user should release the RESETN of the Lane after all of PHY_READY register in lanes are set." ] },
+            { "attr": [ "1", "RO", "bool", "PHY_READY:", "This register is set when PHY is ready to operate after stablizing bias.\nUser can control setting timing of this register using DPHY_SC_GNR_CON1[T_PHY_READY].\nAnd user should release the RESETN of the Lane after all of PHY_READY register in lanes are set." ] },
             { "attr": [ "0", "RW", "bool", "ENABLE:", "For using Lane, user can set this register after PLL is locked." ] }
         ],
 
         "0x0B04 | DPHY_SC_GNR_CON1": [
             { "attr": [ "31:16", "RO", "reserved" ] },
-            { "attr": [ "15:0", "RW", "udecimal", "T_PHY_READY:", "Count value of PHY ready indication. When setting ENABLE register, PHY ready counter starts to count. And when count value reaches to the value of this register, DPHY_SC_GNR_CON0[PHY_READY] is set to HIGH. Generally, 200us is needed for stablizing the bias and the ready counter operates with Reference Clocks." ] }
+            { "attr": [ "15:0", "RW", "udecimal", "T_PHY_READY:", "Count value of PHY ready indication.\nWhen setting ENABLE register, PHY ready counter starts to count.\nAnd when count value reaches to the value of this register, DPHY_SC_GNR_CON0[PHY_READY] is set to HIGH.\nGenerally, 200us is needed for stablizing the bias and the ready counter operates with Reference Clocks." ] }
         ],
 
         "0x0B08 | DPHY_SC_ANA_CON0": [
@@ -1230,7 +1230,7 @@
                 }
             },
             {
-                "attr": [ "2:0", "RW", "enum", "HS_RX_CAPCRTL:", "EQ Capacitor Control (Covered Freq.) Register. MSB[2]: gain/freq control of 2nd amp" ],
+                "attr": [ "2:0", "RW", "enum", "HS_RX_CAPCRTL:", "EQ Capacitor Control (Covered Freq.) Register.\nMSB[2]: gain/freq control of 2nd amp" ],
                 "desc": {
                     "0": "7.43 GHz",
                     "1": "4.82 GHz",
@@ -1266,7 +1266,7 @@
                 }
             },
             {
-                "attr": [ "7", "RW", "enum", "SKEWCAL_CLK_SEL:", "Skew Calibration Clock Rate Control Register. Fin is input clock speed." ],
+                "attr": [ "7", "RW", "enum", "SKEWCAL_CLK_SEL:", "Skew Calibration Clock Rate Control Register.\nFin is input clock speed." ],
                 "desc": {
                     "0": "Fin/8",
                     "1": "Fin/4"
@@ -1494,19 +1494,19 @@
 
         "0x0B30 | DPHY_SC_TIME_CON0": [
             { "attr": [ "31:12", "RO", "reserved" ] },
-            { "attr": [ "11:8", "RW", "udecimal", "T_CLK_MISS:", "This count value is used in High-Speed Transmit operation. There is a watchdog timer in Receive logic for detecting Clock Miss. If the clock is not detected in Slave Clock Lane until the watchdog timer is expired, then internal flag is set." ] },
-            { "attr": [ "7:0", "RW", "udecimal", "T_CLK_SETTLE:", "This count value is used in High-Speed Transmit operation. For getting detailed information of this timing specification, please refer to \"Specification for D-PHYSM\" of mipi alliance." ] }
+            { "attr": [ "11:8", "RW", "udecimal", "T_CLK_MISS:", "This count value is used in High-Speed Transmit operation.\nThere is a watchdog timer in Receive logic for detecting Clock Miss.\nIf the clock is not detected in Slave Clock Lane\nuntil the watchdog timer is expired,\nthen internal flag is set." ] },
+            { "attr": [ "7:0", "RW", "udecimal", "T_CLK_SETTLE:", "This count value is used in High-Speed Transmit operation.\nFor getting detailed information of this timing specification,\nplease refer to \"Specification for D-PHYSM\" of mipi alliance." ] }
         ],
 
         "0x0C00 | COMBO_SD0_GNR_CON0": [
             { "attr": [ "31:2", "RO", "reserved" ] },
-            { "attr": [ "1", "RO", "bool", "PHY_READY:", "This register is set when PHY is ready to operate after stablizing bias. User can control setting timing of this register using COMBO_SDx_GNR_CON1[T_PHY_READY]. And user should release the RESETN of the Lane after all of PHY_READY register in lanes are set." ] },
+            { "attr": [ "1", "RO", "bool", "PHY_READY:", "This register is set when PHY is ready to operate after stablizing bias.\nUser can control setting timing of this register using COMBO_SDx_GNR_CON1[T_PHY_READY].\nAnd user should release the RESETN of the Lane after all of PHY_READY register in lanes are set." ] },
             { "attr": [ "0", "RW", "bool", "ENABLE:", "For using Lane, user can set this register after PLL is locked." ] }
         ],
 
         "0x0C04 | COMBO_SD0_GNR_CON1": [
             { "attr": [ "31:16", "RO", "reserved" ] },
-            { "attr": [ "15:0", "RW", "udecimal", "T_PHY_READY:", "Count value of PHY ready indication. When setting ENABLE register, PHY ready counter starts to count. And when count value reaches to the value of this register, COMBO_SDx_GNR_CON0[PHY_READY] is set to HIGH. Generally, 200us is needed for stablizing the bias and the ready counter operates with Reference Clocks." ] }
+            { "attr": [ "15:0", "RW", "udecimal", "T_PHY_READY:", "Count value of PHY ready indication.\nWhen setting ENABLE register, PHY ready counter starts to count.\nAnd when count value reaches to the value of this register, COMBO_SDx_GNR_CON0[PHY_READY] is set to HIGH.\nGenerally, 200us is needed for stablizing the bias and the ready counter operates with Reference Clocks." ] }
         ],
 
         "0x0C08 | COMBO_SD0_ANA_CON0": [
@@ -1550,7 +1550,7 @@
             },
             { "attr": [ "8", "RO", "reserved" ] },
             {
-                "attr": [ "7:3", "RW", "enum", "HS_RX_RSELCTRL:", "EQ Resistor Control Register. Shows D-PHY only, C-DPHY config is unsure." ],
+                "attr": [ "7:3", "RW", "enum", "HS_RX_RSELCTRL:", "EQ Resistor Control Register.\nShows D-PHY only, C-DPHY config is uncertain." ],
                 "desc": {
                     "00": "Forbidden (infinite)",
                     "01": "300 Ohm",
@@ -1563,7 +1563,7 @@
                 }
             },
             {
-                "attr": [ "2:0", "RW", "enum", "HS_RX_CAPCRTL:", "EQ Capacitor Control (Covered Freq.) Register. MSB[2]: gain/freq control of 2nd amp. Shows D-PHY only, C-DPHY config is unsure." ],
+                "attr": [ "2:0", "RW", "enum", "HS_RX_CAPCRTL:", "EQ Capacitor Control (Covered Freq.) Register.\nMSB[2]: gain/freq control of 2nd amp.\nShows D-PHY only, C-DPHY config is uncertain." ],
                 "desc": {
                     "0": "7.43 GHz",
                     "1": "4.82 GHz",
@@ -1682,18 +1682,18 @@
         "0x0C30 | COMBO_SD0_TIME_CON0": [
             { "attr": [ "31:9", "RO", "reserved" ] },
             {
-                "attr": [ "8", "RW", "enum", "SETTLE_CLK_SEL:", "Settle Counter Clock Select Register. Settle Clock is used for counting TCLK-SETTLE." ],
+                "attr": [ "8", "RW", "enum", "SETTLE_CLK_SEL:", "Settle Counter Clock Select Register.\nSettle Clock is used for counting TCLK-SETTLE." ],
                 "desc": {
                     "0": "Div16 Clock (>= 1500Mbps)",
                     "1": "Div2 Clock (< 1500Mbps)"
                 }
             },
-            { "attr": [ "7:0", "RW", "udecimal", "T_HS_SETTLE:", "TSETTLE Timing Counter Register. This count value is used in High-Speed Transmit operation. For getting detailed information of this timing specification, please refer to \"Specification for D-PHYSM\" of mipi alliance." ] }
+            { "attr": [ "7:0", "RW", "udecimal", "T_HS_SETTLE:", "TSETTLE Timing Counter Register.\nThis count value is used in High-Speed Transmit operation.\nFor getting detailed information of this timing specification,\nplease refer to \"Specification for D-PHYSM\" of mipi alliance." ] }
         ],
 
         "0x0C34 | COMBO_SD0_TIME_CON1": [
             { "attr": [ "31:8", "RO", "reserved" ] },
-            { "attr": [ "7:0", "RW", "udecimal", "T_ERR_SOT_SYNC:", "SoT Sync Error Detect Timing Control Register. This count value is used in High-Speed Transmit operation. There is a watchdog timer in Receive logic for detecting SoT Sync Error. If the Sync Pattern is not detected until the watchdog timer is expired, then the PPI signal \"ERRSOTSYNC\" goes to HIGH." ] }
+            { "attr": [ "7:0", "RW", "udecimal", "T_ERR_SOT_SYNC:", "SoT Sync Error Detect Timing Control Register.\nThis count value is used in High-Speed Transmit operation.\nThere is a watchdog timer in Receive logic for detecting SoT Sync Error.\nIf the Sync Pattern is not detected until the watchdog timer is expired,\nthen the PPI signal \"ERRSOTSYNC\" goes to HIGH." ] }
         ],
 
         "0x0C38 | COMBO_SD0_DATA_CON0": [
@@ -1723,7 +1723,7 @@
             { "attr": [ "31:13", "RO", "reserved" ] },
             { "attr": [ "12:8", "RW", "udecimal", "SKEW_CAL_DATA_COARSE_SET:", "Skew Calibration Manual Data Coarse Delay Control Register." ] },
             { "attr": [ "7:5", "RO", "reserved" ] },
-            { "attr": [ "4:0", "RW", "udecimal", "SKEW_CAL_DATA_FINE_SET:", "Skew Calibration Manual Data Fine Delay Control Register." ] }
+            { "attr": [ "4:0", "RW", "udecimal", "SKEW_CAL_CLK_COARSE_SET:", "Skew Calibration Manual Clock Coarse Delay Control Register." ] }
         ],
 
         "0x0C4C | COMBO_SD0_DESKEW_CON3": [
